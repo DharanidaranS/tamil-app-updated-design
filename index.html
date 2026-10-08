@@ -1,0 +1,1805 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Noto+Serif:ital,wght@0,500;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>
+@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}
+::-webkit-scrollbar{display:none;}
+
+@keyframes keyPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 1px rgba(232, 193, 118, 0.22), 0 2px 4px rgba(0, 0, 0, 0.4);
+    border-color: rgba(232, 193, 118, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 8px 1.5px rgba(232, 193, 118, 0.45), 0 2px 8px rgba(143, 18, 60, 0.3);
+    border-color: rgba(232, 193, 118, 0.6);
+  }
+}
+
+@keyframes pulliSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes waveFlow {
+  0% { stroke-dashoffset: 400; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes auraGlow {
+  0%, 100% {
+    border-color: rgba(232, 193, 118, 0.35);
+    box-shadow: 0 0 12px -2px rgba(232, 193, 118, 0.25), inset 0 0 8px -2px rgba(232, 193, 118, 0.15);
+  }
+  50% {
+    border-color: rgba(232, 193, 118, 0.85);
+    box-shadow: 0 0 20px 2px rgba(232, 193, 118, 0.5), inset 0 0 12px 0px rgba(232, 193, 118, 0.25);
+  }
+}
+
+@keyframes caretMaroonPulse {
+  0%, 100% {
+    opacity: 0.95;
+    box-shadow: 0 0 6px 1px #ffb2be, 0 0 16px 4px rgba(143, 18, 60, 0.7);
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    box-shadow: 0 0 2px 0px #ffb2be, 0 0 4px 1px rgba(143, 18, 60, 0.2);
+    transform: scale(0.9);
+  }
+}
+
+@keyframes haloPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(232, 193, 118, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(232, 193, 118, 0);
+  }
+}
+
+.key-glow-animated {
+  animation: keyPulse 2.8s ease-in-out infinite;
+}
+
+.caret-glow {
+  animation: caretMaroonPulse 1.06s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.aura-buffer {
+  animation: auraGlow 3.2s ease-in-out infinite;
+}
+
+.wave-flow-line {
+  stroke-dasharray: 24 12;
+  animation: waveFlow 18s linear infinite;
+}
+
+.halo-ring {
+  animation: haloPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.pulli-ring {
+  animation: pulliSpin 9s linear infinite;
+}
+
+.glass-sheen {
+  position: relative;
+  overflow: hidden;
+}
+.glass-sheen::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(60deg, transparent 35%, rgba(232, 193, 118, 0.08) 50%, transparent 65%);
+  transform: translateX(-100%);
+  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+.glass-sheen:hover::after {
+  transform: translateX(100%);
+}
+</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"primary":"#e8c176","outline-variant":"#4e4639","inverse-surface":"#e6e1e5","inverse-on-surface":"#313033","surface-container-lowest":"#0f0e11","error":"#ffb4ab","on-tertiary":"#322f37","background":"#141316","tertiary-container":"#aca7b0","tertiary-fixed":"#e6e0ea","on-tertiary-fixed":"#1c1b21","on-primary-fixed-variant":"#5d4200","surface-bright":"#3a383c","on-surface-variant":"#d1c5b4","tertiary-fixed-dim":"#cac4ce","surface-container-highest":"#363437","on-tertiary-fixed-variant":"#48454d","inverse-primary":"#775a19","surface-container":"#201f22","secondary-fixed":"#ffd9de","surface-container-low":"#1c1b1e","on-primary":"#412d00","on-secondary-container":"#ff9cae","surface-dim":"#141316","surface":"#141316","secondary":"#ffb2be","primary-fixed-dim":"#e8c176","on-error":"#690005","outline":"#9a8f80","on-background":"#e6e1e5","on-secondary-fixed-variant":"#8c0f3a","on-surface":"#e6e1e5","tertiary":"#cac4ce","error-container":"#93000a","on-primary-container":"#523a00","surface-tint":"#e8c176","on-primary-fixed":"#261900","surface-variant":"#363437","on-tertiary-container":"#3f3d44","on-error-container":"#ffdad6","primary-fixed":"#ffdea4","on-secondary":"#660026","on-secondary-fixed":"#3f0015","primary-container":"#c9a45c","secondary-fixed-dim":"#ffb2be","secondary-container":"#8f123c","surface-container-high":"#2b292d"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"gutter":"1rem","space-lg":"1.25rem","space-md":"0.75rem","gutter-desktop":"1.5rem","space-xs":"0.25rem","space-sm":"0.5rem","margin":"1rem","space-xl":"2rem","margin-desktop":"2rem"},"fontFamily":{"headline-lg":["Noto Serif"],"code-keycap":["Manrope"],"display-lg":["Noto Serif"],"label-md":["Manrope"],"body-lg":["Manrope"],"body-md":["Manrope"],"headline-md":["Noto Serif"],"label-sm":["Manrope"],"headline-sm":["Noto Serif"],"headline-lg-mobile":["Noto Serif"],"label-lg":["Manrope"],"display-xl":["Noto Serif"],"body-sm":["Manrope"]},"fontSize":{"headline-lg":["28px",{"lineHeight":"36px","fontWeight":"600"}],"code-keycap":["15px",{"lineHeight":"15px","fontWeight":"600"}],"display-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-md":["11px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"26px","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"22px","fontWeight":"400"}],"headline-md":["22px",{"lineHeight":"30px","fontWeight":"500"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.06em","fontWeight":"700"}],"headline-sm":["18px",{"lineHeight":"26px","fontWeight":"500"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","fontWeight":"600"}],"label-lg":["13px",{"lineHeight":"18px","letterSpacing":"0.02em","fontWeight":"600"}],"display-xl":["48px",{"lineHeight":"56px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased select-none relative min-h-screen">
+<!-- LIVING WEBGL PROCEDURAL SHADER BACKDROP -->
+<!-- STITCH_SHADER_START:ANIMATION_4 class="fixed inset-0 w-full h-full pointer-events-none opacity-45 -z-10" -->
+<div class="fixed inset-0 w-full h-full pointer-events-none opacity-45 -z-10" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_4" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_4');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+uniform float u_time;
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+varying vec2 v_texCoord;
+
+// Simplex-style noise and subtle flow curves reminiscent of Tamil calligraphic loops
+float hash(vec2 p) {
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
+}
+
+float noise(vec2 p) {
+    vec2 i = floor(p);
+    vec2 f = fract(p);
+    f = f * f * (3.0 - 2.0 * f);
+    return mix(mix(hash(i + vec2(0.0, 0.0)), hash(i + vec2(1.0, 0.0)), f.x),
+               mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), f.x), f.y);
+}
+
+float fbm(vec2 p) {
+    float v = 0.0;
+    float a = 0.5;
+    mat2 rot = mat2(cos(0.5), sin(0.5), -sin(0.5), cos(0.5));
+    for (int i = 0; i < 4; ++i) {
+        v += a * noise(p);
+        p = rot * p * 2.0 + vec2(0.15 * u_time, 0.08 * u_time);
+        a *= 0.5;
+    }
+    return v;
+}
+
+void main() {
+    vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+    vec2 p = (gl_FragCoord.xy - 0.5 * u_resolution.xy) / min(u_resolution.x, u_resolution.y);
+    
+    // Subtle mouse interaction influence
+    vec2 m = (u_mouse.xy / u_resolution.xy) - 0.5;
+    p += m * 0.08;
+
+    float t = u_time * 0.12;
+    
+    // Dual curling vector ribbons ("Tamil Flow" ribbons)
+    float flow1 = sin(p.x * 2.2 + p.y * 1.8 + t + fbm(p * 1.5 + t * 0.4) * 3.1415);
+    float flow2 = cos(p.x * 3.0 - p.y * 2.5 - t * 0.8 + fbm(p * 2.0 - t * 0.3) * 2.5);
+    
+    // Hairline caustic ribbon curves
+    float line1 = smoothstep(0.02, 0.001, abs(flow1 - 0.25));
+    float line2 = smoothstep(0.03, 0.002, abs(flow2 + 0.15));
+    float softGlow = exp(-length(p) * 1.6) * 0.35;
+
+    // Palette: Deep obsidian slate (#0e0d10), Tamil Maroon (#7a1735 -> #a22349), Antique Gold (#c9a45c)
+    vec3 bgDark = vec3(0.055, 0.051, 0.063);       // #0e0d10
+    vec3 bgElevated = vec3(0.085, 0.078, 0.098);   // deep graphite vignette
+    vec3 maroon = vec3(0.58, 0.11, 0.23);          // vibrant deep maroon accent
+    vec3 gold = vec3(0.79, 0.64, 0.36);            // #c9a45c antique gold highlight
+    vec3 warmAmber = vec3(0.85, 0.55, 0.25);
+
+    // Deep ambient base
+    vec3 col = mix(bgDark, bgElevated, length(uv - 0.5) * 1.2);
+    
+    // Organic slow atmospheric cloud
+    float mist = fbm(p * 1.2 + vec2(t * 0.2, t * 0.1));
+    col += maroon * (mist * 0.22) * (1.0 - length(p * 0.9));
+    
+    // Golden hairline filaments and luminous ribbon weave
+    col += gold * (line1 * 0.38) * (0.8 + 0.2 * sin(u_time * 1.5));
+    col += maroon * (line2 * 0.55);
+    col += warmAmber * (line1 * line2 * 0.8);
+    
+    // Soft radial aura behind center editor
+    col += gold * (softGlow * 0.09);
+
+    gl_FragColor = vec4(col, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_4 -->
+<header class="fixed top-0 left-0 right-0 h-12 bg-surface-container-lowest/85 backdrop-blur-md z-50 flex items-center justify-between px-3 shadow-[0_1px_8px_rgba(0,0,0,0.45)] border-b border-outline-variant/20"><div class="flex items-center gap-3"><img alt="TAMIL99 Brand Mark" class="h-6 w-auto object-contain filter drop-shadow-[0_0_8px_rgba(232,193,118,0.25)]" src="https://lh3.googleusercontent.com/aida/AEtjO1VcwIqAA2n_GLc8NAzhjdJt9NHX-05Lx7_v3kPtr049NS990miLWYlnHt9hH_DgHBt3tEgjmdg_RBAGO16NKaUmnk3C5plsHTKW6JhF0EZfZxig-8l0ZpSrUxoqEvt75_yfQ_WEqO59CMF_lQrM41JpWScF3qFwYbZRL2nddPhQvnYR_xl423nxsCDqkcbYVVy7aGV8tvbOBVqB6v00v6cDWovfFUQ4WRCmUitH"/><span class="font-headline-sm text-headline-sm text-primary tracking-tight">TAMIL99</span><span class="h-4 w-[1px] bg-outline-variant/40 ml-1"></span><span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container/90 border border-primary/30 text-primary font-label-sm text-label-sm shadow-[0_0_10px_rgba(232,193,118,0.15)]"><span class="w-1.5 h-1.5 rounded-full bg-primary halo-ring"></span>Tamil99 Active</span></div><div class="flex-1 max-w-md mx-6"><div class="w-full flex items-center justify-between px-3 py-1 bg-surface-container-low/90 backdrop-blur-sm rounded border border-outline-variant/20 text-on-surface-variant hover:text-on-surface cursor-pointer shadow-inner transition-all hover:border-primary/40"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">search</span><span class="font-body-sm text-body-sm">Search or press Ctrl+K</span></div><kbd class="px-1.5 py-0.2 rounded bg-surface-container text-on-surface font-label-sm text-label-sm shadow-[0_1px_0_#070709] border border-outline-variant/30">Ctrl+K</kbd></div></div><div class="flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center mr-2 shadow-[0_1px_4px_rgba(232,193,118,0.4)]"><span class="material-symbols-outlined text-on-primary text-[16px]">person</span></div><div class="flex items-center text-on-surface-variant"><button aria-label="Minimize window" class="h-8 w-10 flex items-center justify-center hover:bg-surface-container hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[15px]">minimize</span></button><button aria-label="Maximize window" class="h-8 w-10 flex items-center justify-center hover:bg-surface-container hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[15px]">crop_square</span></button><button aria-label="Close window" class="h-8 w-10 flex items-center justify-center hover:bg-error-container hover:text-on-error-container transition-colors"><span class="material-symbols-outlined text-[15px]">close</span></button></div></div></header><aside class="fixed left-0 top-12 bottom-8 w-[260px] bg-surface-container-low/85 backdrop-blur-md z-40 flex flex-col py-3 overflow-y-auto border-r border-outline-variant/15"><nav class="flex-1 px-3 space-y-4" data-active-classes="bg-primary-container text-on-primary-container font-label-lg font-bold shadow-[inset_0_1px_0_rgba(255,255,255,0.15)]"><div class="space-y-1"><p class="px-2 py-1 font-label-sm text-label-sm uppercase tracking-wider text-outline">WORKSPACE</p><a class="flex items-center px-2.5 py-1.5 rounded text-on-surface-variant hover:bg-surface-container-high/70 hover:text-on-surface transition-all gap-2.5 font-label-md text-label-md" data-path="overview" href="#"><span class="material-symbols-outlined text-[18px]">dashboard</span><span>Overview</span></a><a aria-current="page" class="flex items-center px-2.5 py-1.5 rounded transition-all gap-2.5 bg-primary-container text-on-primary-container font-label-lg font-bold shadow-[0_2px_8px_rgba(201,164,92,0.3)] border border-primary/40" data-path="tamil99-studio" href="#"><span class="material-symbols-outlined text-[18px]">keyboard</span><span>Tamil99 Studio</span></a><a class="flex items-center px-2.5 py-1.5 rounded text-on-surface-variant hover:bg-surface-container-high/70 hover:text-on-surface transition-all gap-2.5 font-label-md text-label-md" data-path="english-tamil" href="#"><span class="material-symbols-outlined text-[18px]">translate</span><span>English→Tamil</span></a><a class="flex items-center px-2.5 py-1.5 rounded text-on-surface-variant hover:bg-surface-container-high/70 hover:text-on-surface transition-all gap-2.5 font-label-md text-label-md" data-path="voice-to-text" href="#"><span class="material-symbols-outlined text-[18px]">mic</span><span>Voice to Text</span></a><a class="flex items-center px-2.5 py-1.5 rounded text-on-surface-variant hover:bg-surface-container-high/70 hover:text-on-surface transition-all gap-2.5 font-label-md text-label-md" data-path="document-studio" href="#"><span class="material-symbols-outlined text-[18px]">edit_note</span><span>Document Studio</span></a></div><div class="space-y-1"><p class="px-2 py-1 font-label-sm text-label-sm uppercase tracking-wider text-outline">LEARN</p><a class="flex items-center px-2.5 py-1.5 rounded text-on-surface-variant hover:bg-surface-container-high/70 hover:text-on-surface transition-all gap-2.5 font-label-md text-label-md" data-path="tamil-academy" href="#"><span class="material-symbols-outlined text-[18px]">school</span><span>Tamil Academy</span></a><a class="flex items-center px-2.5 py-1.5 rounded text-on-surface-variant hover:bg-surface-container-high/70 hover:text-on-surface transition-all gap-2.5 font-label-md text-label-md" data-path="typing-arena" href="#"><span class="material-symbols-outlined text-[18px]">sports_esports</span><span>Typing Arena</span></a></div><div class="space-y-1"><p class="px-2 py-1 font-label-sm text-label-sm uppercase tracking-wider text-outline">CREATE</p><a class="flex items-center px-2.5 py-1.5 rounded text-on-surface-variant hover:bg-surface-container-high/70 hover:text-on-surface transition-all gap-2.5 font-label-md text-label-md" data-path="form-assistant" href="#"><span class="material-symbols-outlined text-[18px]">dynamic_form</span><span>Form Assistant</span></a><a class="flex items-center px-2.5 py-1.5 rounded text-on-surface-variant hover:bg-surface-container-high/70 hover:text-on-surface transition-all gap-2.5 font-label-md text-label-md" data-path="pdf-studio" href="#"><span class="material-symbols-outlined text-[18px]">picture_as_pdf</span><span>PDF Studio</span></a><a class="flex items-center px-2.5 py-1.5 rounded text-on-surface-variant hover:bg-surface-container-high/70 hover:text-on-surface transition-all gap-2.5 font-label-md text-label-md" data-path="documents" href="#"><span class="material-symbols-outlined text-[18px]">folder</span><span>Documents</span></a></div><div class="space-y-1"><p class="px-2 py-1 font-label-sm text-label-sm uppercase tracking-wider text-outline">DEVELOP</p><a class="flex items-center px-2.5 py-1.5 rounded text-on-surface-variant hover:bg-surface-container-high/70 hover:text-on-surface transition-all gap-2.5 font-label-md text-label-md" data-path="developer-sdk" href="#"><span class="material-symbols-outlined text-[18px]">terminal</span><span>Developer SDK</span></a></div><div class="space-y-1"><p class="px-2 py-1 font-label-sm text-label-sm uppercase tracking-wider text-outline">SYSTEM</p><a class="flex items-center px-2.5 py-1.5 rounded text-on-surface-variant hover:bg-surface-container-high/70 hover:text-on-surface transition-all gap-2.5 font-label-md text-label-md" data-path="settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span>Settings</span></a><a class="flex items-center px-2.5 py-1.5 rounded text-on-surface-variant hover:bg-surface-container-high/70 hover:text-on-surface transition-all gap-2.5 font-label-md text-label-md" data-path="help" href="#"><span class="material-symbols-outlined text-[18px]">help</span><span>Help</span></a></div></nav></aside><div class="pl-[260px] min-h-screen flex flex-col justify-between pb-8"><main class="relative pt-12 w-full px-gutter-desktop"><div class="flex flex-col w-full text-on-surface">
+<!-- TOP WORKSPACE SUBHEADER BAR -->
+<header class="w-full bg-surface-container-low/75 backdrop-blur-xl border border-outline-variant/20 rounded-xl p-3 shadow-xl mb-6 flex flex-col xl:flex-row xl:items-center xl:justify-between gap-4">
+<!-- Status & Mode Selectors -->
+<div class="flex flex-wrap items-center gap-3">
+<div class="flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-highest/90 border border-primary/25 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary halo-ring"></span>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider font-bold">TAMIL99 ● Active</span>
+</div>
+<!-- Segmented Pill: Layout Switcher -->
+<div class="inline-flex p-0.5 rounded-full bg-surface-container-highest/90 border border-outline-variant/25 text-on-surface-variant font-label-md text-label-md">
+<button class="px-3 py-1 rounded-full bg-primary text-on-primary font-bold shadow-md transition-all" id="layout-tamil99" onclick="setLayout('tamil99')">தமிழ்99</button>
+<button class="px-3 py-1 rounded-full hover:text-on-surface transition-all" id="layout-phonetic" onclick="setLayout('phonetic')">Phonetic</button>
+<button class="px-3 py-1 rounded-full hover:text-on-surface transition-all" id="layout-inscript" onclick="setLayout('inscript')">Inscript</button>
+</div>
+<!-- Font Selector -->
+<div class="flex items-center bg-surface-container-highest/85 border border-outline-variant/25 rounded px-2 py-0.5 text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-[15px] mr-1.5 text-primary">text_fields</span>
+<select class="bg-transparent border-0 text-on-surface font-label-md text-label-md focus:outline-none cursor-pointer pr-2" id="font-select" onchange="changeCanvasFont(this.value)">
+<option class="bg-surface-container-high text-on-surface" value="'Noto Serif', serif">Noto Serif Tamil</option>
+<option class="bg-surface-container-high text-on-surface" value="'Manrope', sans-serif">Noto Sans Tamil</option>
+<option class="bg-surface-container-high text-on-surface" value="'Noto Serif', cursive">Mukta Malar Classic</option>
+</select>
+</div>
+<!-- Size Selector -->
+<div class="inline-flex items-center p-0.5 rounded bg-surface-container-highest/85 border border-outline-variant/25 text-on-surface-variant font-label-sm text-label-sm">
+<button class="px-2 py-1 rounded hover:bg-surface-container hover:text-on-surface transition-colors" onclick="setCanvasFontSize('16px')">16</button>
+<button class="px-2 py-1 rounded bg-surface-container text-primary font-bold shadow-sm" onclick="setCanvasFontSize('19px')">19</button>
+<button class="px-2 py-1 rounded hover:bg-surface-container hover:text-on-surface transition-colors" onclick="setCanvasFontSize('22px')">22</button>
+<button class="px-2 py-1 rounded hover:bg-surface-container hover:text-on-surface transition-colors" onclick="setCanvasFontSize('26px')">26</button>
+</div>
+</div>
+<!-- Quick Actions Toolbar -->
+<div class="flex items-center flex-wrap gap-2">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded bg-surface-container/90 hover:bg-surface-container-high text-on-surface transition-colors shadow-sm font-label-md text-label-md border border-outline-variant/20" onclick="toggleKeyboard()" title="Toggle Keyboard (F8)">
+<span class="material-symbols-outlined text-[16px] text-primary">keyboard_alt</span>
+<span>Keyboard (F8)</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded bg-surface-container/90 hover:bg-surface-container-high text-on-surface transition-colors shadow-sm font-label-md text-label-md border border-outline-variant/20" onclick="exportPdfSim()" title="Export PDF">
+<span class="material-symbols-outlined text-[16px] text-secondary">picture_as_pdf</span>
+<span>Export PDF</span>
+</button>
+<button class="flex items-center gap-1.5 px-2.5 py-1.5 rounded bg-surface-container/90 hover:bg-surface-container-high text-on-surface transition-colors shadow-sm font-label-md text-label-md border border-outline-variant/20" onclick="toggleCommandPalette()" title="Shortcuts Palette (Ctrl+K)">
+<span class="material-symbols-outlined text-[16px] text-primary">terminal</span>
+<kbd class="px-1 py-0.2 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">Ctrl+K</kbd>
+</button>
+<button class="flex items-center gap-1.5 px-2.5 py-1.5 rounded bg-surface-container/90 hover:bg-surface-container-high text-on-surface transition-colors shadow-sm font-label-md text-label-md border border-outline-variant/20" id="theme-btn" onclick="toggleWorkspaceTheme()" title="Toggle Ivory / Graphite Mode">
+<span class="material-symbols-outlined text-[16px] text-primary">contrast</span>
+<span id="theme-btn-label">Graphite</span>
+</button>
+</div>
+</header>
+<!-- SUITE VIEW NAVIGATION TABS -->
+<div class="w-full flex items-center overflow-x-auto pb-2 mb-6 scrollbar-none gap-2">
+<button class="workspace-tab px-4 py-2 rounded-lg bg-primary-container text-on-primary-container font-label-lg text-label-lg font-bold shadow-md border border-primary/40 flex items-center gap-2 whitespace-nowrap transition-all" id="navtab-studio" onclick="switchWorkspaceTab('studio')">
+<span class="material-symbols-outlined text-[18px]">keyboard</span>
+<span>Tamil99 Studio</span>
+</button>
+<button class="workspace-tab px-4 py-2 rounded-lg bg-surface-container/80 backdrop-blur-md hover:bg-surface-container-high border border-outline-variant/20 text-on-surface font-label-lg text-label-lg flex items-center gap-2 whitespace-nowrap transition-all" id="navtab-translit" onclick="switchWorkspaceTab('translit')">
+<span class="material-symbols-outlined text-[18px]">translate</span>
+<span>English→Tamil</span>
+</button>
+<button class="workspace-tab px-4 py-2 rounded-lg bg-surface-container/80 backdrop-blur-md hover:bg-surface-container-high border border-outline-variant/20 text-on-surface font-label-lg text-label-lg flex items-center gap-2 whitespace-nowrap transition-all" id="navtab-voice" onclick="switchWorkspaceTab('voice')">
+<span class="material-symbols-outlined text-[18px]">mic</span>
+<span>Voice to Text</span>
+</button>
+<button class="workspace-tab px-4 py-2 rounded-lg bg-surface-container/80 backdrop-blur-md hover:bg-surface-container-high border border-outline-variant/20 text-on-surface font-label-lg text-label-lg flex items-center gap-2 whitespace-nowrap transition-all" id="navtab-arena" onclick="switchWorkspaceTab('arena')">
+<span class="material-symbols-outlined text-[18px]">sports_esports</span>
+<span>Typing Arena</span>
+</button>
+<button class="workspace-tab px-4 py-2 rounded-lg bg-surface-container/80 backdrop-blur-md hover:bg-surface-container-high border border-outline-variant/20 text-on-surface font-label-lg text-label-lg flex items-center gap-2 whitespace-nowrap transition-all" id="navtab-academy" onclick="switchWorkspaceTab('academy')">
+<span class="material-symbols-outlined text-[18px]">school</span>
+<span>Tamil Academy</span>
+</button>
+<button class="workspace-tab px-4 py-2 rounded-lg bg-surface-container/80 backdrop-blur-md hover:bg-surface-container-high border border-outline-variant/20 text-on-surface font-label-lg text-label-lg flex items-center gap-2 whitespace-nowrap transition-all" id="navtab-forms" onclick="switchWorkspaceTab('forms')">
+<span class="material-symbols-outlined text-[18px]">dynamic_form</span>
+<span>Form Assistant</span>
+</button>
+<button class="workspace-tab px-4 py-2 rounded-lg bg-surface-container/80 backdrop-blur-md hover:bg-surface-container-high border border-outline-variant/20 text-on-surface font-label-lg text-label-lg flex items-center gap-2 whitespace-nowrap transition-all" id="navtab-sdk" onclick="switchWorkspaceTab('sdk')">
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+<span>Developer SDK</span>
+</button>
+</div>
+<!-- MAIN TAB 1: TAMIL99 STUDIO (HERO CANVAS + KEYBOARD + TELEMETRY) -->
+<!-- MAIN TAB: DOCUMENT STUDIO -->
+<div class="flex flex-col w-full space-y-6 hidden" id="tab-doc-studio">
+  <div class="w-full max-w-5xl mx-auto flex flex-col rounded-xl bg-surface-container-low/85 backdrop-blur-xl border border-outline-variant/25 shadow-2xl overflow-hidden min-h-[600px]">
+    <!-- Floating Tool Strip -->
+    <div class="flex items-center justify-between px-6 py-4 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/20">
+      <div class="flex items-center gap-4">
+        <div class="p-2 rounded-full bg-primary/20 border border-primary/30">
+          <span class="material-symbols-outlined text-primary text-[24px]">edit_document</span>
+        </div>
+        <div class="flex flex-col">
+          <input type="text" value="Untitled Tamil Document" class="bg-transparent border-none focus:outline-none font-headline-sm text-on-surface text-lg font-bold w-64 hover:bg-surface-container rounded px-1 -ml-1 transition-colors" />
+          <span class="font-label-sm text-label-sm text-on-surface-variant">Last edited just now</span>
+        </div>
+      </div>
+      
+      <!-- Formatting Palette -->
+      <div class="flex items-center gap-1 bg-surface-container-highest/60 p-1.5 rounded-lg border border-outline-variant/20 shadow-inner">
+        <button class="p-2 rounded-md hover:bg-surface-container-low text-on-surface-variant hover:text-primary transition-all shadow-sm"><span class="material-symbols-outlined text-[18px]">format_bold</span></button>
+        <button class="p-2 rounded-md hover:bg-surface-container-low text-on-surface-variant hover:text-primary transition-all shadow-sm"><span class="material-symbols-outlined text-[18px]">format_italic</span></button>
+        <button class="p-2 rounded-md hover:bg-surface-container-low text-on-surface-variant hover:text-primary transition-all shadow-sm"><span class="material-symbols-outlined text-[18px]">format_underlined</span></button>
+        <div class="w-px h-6 bg-outline-variant/30 mx-2"></div>
+        <button class="p-2 rounded-md hover:bg-surface-container-low text-on-surface-variant hover:text-primary transition-all shadow-sm"><span class="material-symbols-outlined text-[18px]">format_align_left</span></button>
+        <button class="p-2 rounded-md bg-surface-container-low text-primary shadow border border-outline-variant/10"><span class="material-symbols-outlined text-[18px]">format_align_center</span></button>
+        <button class="p-2 rounded-md hover:bg-surface-container-low text-on-surface-variant hover:text-primary transition-all shadow-sm"><span class="material-symbols-outlined text-[18px]">format_align_right</span></button>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button class="px-4 py-2 rounded-lg bg-surface-container border border-outline-variant/20 text-on-surface font-label-md hover:bg-surface-container-high transition-colors shadow-sm flex items-center gap-2">
+          <span class="material-symbols-outlined text-[18px]">history</span> History
+        </button>
+        <button class="px-5 py-2 rounded-lg bg-primary text-on-primary font-bold shadow-[0_0_12px_rgba(232,193,118,0.4)] hover:shadow-[0_0_20px_rgba(232,193,118,0.6)] transition-all flex items-center gap-2 border border-primary-container">
+          <span class="material-symbols-outlined text-[18px]">check_circle</span> Save
+        </button>
+      </div>
+    </div>
+    
+    <!-- Rich Text Editing Canvas -->
+    <div class="flex-1 p-8 md:p-12 bg-gradient-to-b from-surface-container-lowest/80 to-surface-lowest/90 overflow-y-auto">
+      <div class="w-full max-w-3xl mx-auto min-h-[500px] border-none focus:outline-none text-on-surface font-body-lg text-[18px] leading-[1.8] text-center" contenteditable="true">
+        <h1 class="text-4xl font-headline-lg text-primary mb-6 mt-4">முழுமையான ஆவண திருத்தி</h1>
+        <p class="text-on-surface-variant/80 italic mb-8 font-label-lg">A rich text document studio designed for seamless Tamil and English authoring.</p>
+        <p class="mb-4">This section has been fully constructed with a beautiful, distraction-free writing environment. It features rich typography, a glassmorphic toolbar, and native support for the Tamil99 layout engine.</p>
+        <p class="mb-4">You can now use this studio to draft long-form articles, letters, or poetry in an elevated interface.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN TAB: HELP -->
+<div class="flex flex-col w-full space-y-6 hidden" id="tab-help">
+  <div class="w-full max-w-4xl mx-auto flex flex-col gap-6">
+    <!-- Hero Search -->
+    <div class="w-full bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl p-10 flex flex-col items-center justify-center text-center border border-primary/10 shadow-lg relative overflow-hidden">
+      <!-- Decorative circles -->
+      <div class="absolute -top-10 -right-10 w-40 h-40 bg-primary/20 rounded-full blur-3xl"></div>
+      <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-secondary/20 rounded-full blur-3xl"></div>
+      
+      <h2 class="font-display-lg text-3xl md:text-4xl font-bold text-on-surface mb-4 z-10">How can we help you?</h2>
+      <p class="font-body-lg text-on-surface-variant mb-8 max-w-lg z-10">Search our knowledge base, read tutorials on the Tamil99 layout, or contact support.</p>
+      
+      <div class="relative w-full max-w-xl z-10">
+        <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-[24px] text-on-surface-variant">search</span>
+        <input type="text" placeholder="Search for articles, guides, or features..." class="w-full pl-12 pr-4 py-4 rounded-xl bg-surface-container-lowest border border-outline-variant/30 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 text-on-surface font-body-md shadow-lg transition-all text-lg" />
+      </div>
+    </div>
+
+    <!-- Quick Links Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+      <a href="#" class="group flex flex-col items-center text-center bg-surface-container-low/80 backdrop-blur-md border border-outline-variant/20 rounded-xl p-6 hover:bg-surface-container-low hover:border-primary/30 transition-all hover:-translate-y-1 hover:shadow-md">
+        <div class="w-14 h-14 rounded-full bg-primary-container/30 flex items-center justify-center mb-4 text-primary group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-[28px]">keyboard</span>
+        </div>
+        <h3 class="font-headline-sm font-bold text-on-surface mb-2">Tamil99 Tutorial</h3>
+        <p class="font-body-sm text-on-surface-variant text-sm">Learn the basics of the Tamil99 keyboard layout and start typing fast.</p>
+      </a>
+      
+      <a href="#" class="group flex flex-col items-center text-center bg-surface-container-low/80 backdrop-blur-md border border-outline-variant/20 rounded-xl p-6 hover:bg-surface-container-low hover:border-primary/30 transition-all hover:-translate-y-1 hover:shadow-md">
+        <div class="w-14 h-14 rounded-full bg-secondary-container/30 flex items-center justify-center mb-4 text-secondary group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-[28px]">description</span>
+        </div>
+        <h3 class="font-headline-sm font-bold text-on-surface mb-2">Document Studio Guide</h3>
+        <p class="font-body-sm text-on-surface-variant text-sm">Master the rich text editor, formatting tools, and history tracking.</p>
+      </a>
+
+      <a href="#" class="group flex flex-col items-center text-center bg-surface-container-low/80 backdrop-blur-md border border-outline-variant/20 rounded-xl p-6 hover:bg-surface-container-low hover:border-primary/30 transition-all hover:-translate-y-1 hover:shadow-md">
+        <div class="w-14 h-14 rounded-full bg-tertiary-container/30 flex items-center justify-center mb-4 text-tertiary group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-[28px]">support_agent</span>
+        </div>
+        <h3 class="font-headline-sm font-bold text-on-surface mb-2">Contact Support</h3>
+        <p class="font-body-sm text-on-surface-variant text-sm">Facing issues or found a bug? Reach out to our technical support team.</p>
+      </a>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="mt-8 bg-surface-container-lowest/60 border border-outline-variant/20 rounded-xl p-8">
+      <h3 class="font-headline-md text-2xl font-bold text-on-surface mb-6 border-b border-outline-variant/20 pb-4">Frequently Asked Questions</h3>
+      
+      <div class="flex flex-col gap-4">
+        <details class="group bg-surface-container rounded-lg border border-outline-variant/20 cursor-pointer overflow-hidden">
+          <summary class="flex justify-between items-center font-headline-sm font-medium p-4 text-on-surface">
+            How do I export my document to PDF?
+            <span class="material-symbols-outlined transition-transform group-open:rotate-180 text-on-surface-variant">expand_more</span>
+          </summary>
+          <div class="p-4 pt-0 text-on-surface-variant font-body-sm leading-relaxed border-t border-outline-variant/10 mt-2">
+            Go to the PDF Studio section from the sidebar. You can customize the page size, margins, and embedded fonts before clicking "Generate PDF".
+          </div>
+        </details>
+        
+        <details class="group bg-surface-container rounded-lg border border-outline-variant/20 cursor-pointer overflow-hidden">
+          <summary class="flex justify-between items-center font-headline-sm font-medium p-4 text-on-surface">
+            Are my files saved automatically?
+            <span class="material-symbols-outlined transition-transform group-open:rotate-180 text-on-surface-variant">expand_more</span>
+          </summary>
+          <div class="p-4 pt-0 text-on-surface-variant font-body-sm leading-relaxed border-t border-outline-variant/10 mt-2">
+            Yes, if you have enabled Auto-Save in the Settings menu. Otherwise, you must click the Save button in the Document Studio manually.
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN TAB: SETTINGS -->
+<div class="flex flex-col w-full space-y-6 hidden" id="tab-settings">
+  <div class="w-full max-w-5xl mx-auto flex flex-col md:flex-row gap-8">
+    
+    <!-- Settings Sidebar -->
+    <div class="w-full md:w-1/4 flex flex-col gap-2">
+      <h2 class="font-headline-sm text-2xl font-bold text-on-surface mb-4">Settings</h2>
+      
+      <button class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/10 text-primary font-medium text-left transition-colors">
+        <span class="material-symbols-outlined text-[20px]">manage_accounts</span> Account
+      </button>
+      <button class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-surface-container-low text-on-surface-variant text-left transition-colors">
+        <span class="material-symbols-outlined text-[20px]">palette</span> Appearance
+      </button>
+      <button class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-surface-container-low text-on-surface-variant text-left transition-colors">
+        <span class="material-symbols-outlined text-[20px]">keyboard</span> Keyboard
+      </button>
+      <button class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-surface-container-low text-on-surface-variant text-left transition-colors">
+        <span class="material-symbols-outlined text-[20px]">sync</span> Sync & Cloud
+      </button>
+      <button class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-surface-container-low text-on-surface-variant text-left transition-colors">
+        <span class="material-symbols-outlined text-[20px]">notifications</span> Notifications
+      </button>
+    </div>
+
+    <!-- Settings Content -->
+    <div class="w-full md:w-3/4 flex flex-col gap-6">
+      <div class="bg-surface-container-lowest/80 backdrop-blur-xl border border-outline-variant/20 rounded-xl p-8 shadow-lg">
+        
+        <h3 class="font-headline-sm text-xl font-bold text-on-surface border-b border-outline-variant/20 pb-4 mb-6">Account Settings</h3>
+        
+        <!-- Profile Section -->
+        <div class="flex items-center gap-6 mb-8">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-primary to-secondary flex items-center justify-center shadow-inner text-white text-3xl font-bold">
+            T
+          </div>
+          <div class="flex flex-col flex-1">
+            <h4 class="font-headline-sm text-lg text-on-surface font-semibold">Tamil User</h4>
+            <p class="font-body-sm text-on-surface-variant mb-3">user@example.com</p>
+            <div class="flex gap-3">
+              <button class="px-4 py-1.5 rounded-full bg-surface-container border border-outline-variant/30 text-on-surface font-label-sm hover:bg-surface-container-high transition-colors text-sm">Change Avatar</button>
+              <button class="px-4 py-1.5 rounded-full bg-error/10 text-error font-label-sm hover:bg-error/20 transition-colors text-sm">Sign Out</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <div class="flex flex-col gap-2">
+            <label class="font-label-sm text-label-sm text-outline uppercase tracking-wide">Display Name</label>
+            <input type="text" value="Tamil User" class="w-full max-w-md bg-surface-container border border-outline-variant/30 rounded-lg px-4 py-2.5 text-on-surface font-body-sm focus:outline-none focus:border-primary/50 transition-colors" />
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label class="font-label-sm text-label-sm text-outline uppercase tracking-wide">Email Address</label>
+            <input type="email" value="user@example.com" class="w-full max-w-md bg-surface-container border border-outline-variant/30 rounded-lg px-4 py-2.5 text-on-surface font-body-sm focus:outline-none focus:border-primary/50 transition-colors" disabled />
+            <p class="font-body-sm text-on-surface-variant text-xs mt-1">Email cannot be changed.</p>
+          </div>
+        </div>
+
+        <h3 class="font-headline-sm text-xl font-bold text-on-surface border-b border-outline-variant/20 pb-4 mb-6 mt-10">Preferences</h3>
+
+        <div class="space-y-6">
+          <div class="flex items-center justify-between">
+            <div class="flex flex-col">
+              <span class="font-body-md text-on-surface font-semibold">Auto-Save Documents</span>
+              <span class="font-body-sm text-on-surface-variant text-sm">Automatically save your work to the cloud every minute.</span>
+            </div>
+            <div class="w-12 h-6 bg-primary/40 rounded-full relative cursor-pointer shadow-inner">
+              <div class="absolute right-1 top-1 w-4 h-4 bg-primary rounded-full shadow"></div>
+            </div>
+          </div>
+          
+          <div class="flex items-center justify-between">
+            <div class="flex flex-col">
+              <span class="font-body-md text-on-surface font-semibold">Diagnostic Telemetry</span>
+              <span class="font-body-sm text-on-surface-variant text-sm">Help improve the app by sending anonymous usage data.</span>
+            </div>
+            <div class="w-12 h-6 bg-surface-container-high border border-outline-variant/30 rounded-full relative cursor-pointer shadow-inner">
+              <div class="absolute left-1 top-1 w-4 h-4 bg-outline rounded-full shadow"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 pt-6 border-t border-outline-variant/20 flex justify-end">
+          <button class="px-6 py-2.5 rounded-lg bg-primary text-on-primary font-bold shadow-[0_0_12px_rgba(232,193,118,0.3)] hover:shadow-[0_0_20px_rgba(232,193,118,0.5)] transition-all">
+            Save Changes
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN TAB: DOCUMENTS -->
+<div class="flex flex-col w-full space-y-6 hidden" id="tab-documents">
+  <div class="w-full max-w-5xl mx-auto flex flex-col gap-6">
+    <!-- Header Controls -->
+    <div class="flex items-center justify-between">
+      <h1 class="font-display-lg text-3xl font-bold text-on-surface">My Documents</h1>
+      <div class="flex items-center gap-3">
+        <div class="relative">
+          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[18px] text-on-surface-variant">search</span>
+          <input type="text" placeholder="Search files..." class="pl-10 pr-4 py-2 rounded-full bg-surface-container-low border border-outline-variant/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/50 text-sm text-on-surface w-64 transition-all placeholder:text-on-surface-variant/50" />
+        </div>
+        <button class="flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-on-primary font-bold shadow-[0_0_12px_rgba(232,193,118,0.3)] hover:shadow-[0_0_20px_rgba(232,193,118,0.5)] transition-all">
+          <span class="material-symbols-outlined text-[20px]">add</span> New File
+        </button>
+      </div>
+    </div>
+
+    <!-- Quick Access / Recent -->
+    <div class="flex flex-col gap-4">
+      <h2 class="font-label-md text-label-md text-outline uppercase tracking-wider">Recent Files</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <!-- Card 1 -->
+        <div class="group flex flex-col bg-surface-container-lowest/80 backdrop-blur-md border border-outline-variant/20 rounded-xl p-4 cursor-pointer hover:border-primary/40 hover:bg-surface-container-lowest transition-all hover:-translate-y-1 hover:shadow-lg">
+          <div class="flex items-start justify-between mb-8">
+            <div class="p-2 bg-primary-container/20 rounded-lg border border-primary/20">
+              <span class="material-symbols-outlined text-primary text-[24px]">description</span>
+            </div>
+            <button class="text-on-surface-variant opacity-0 group-hover:opacity-100 hover:text-on-surface transition-opacity"><span class="material-symbols-outlined text-[20px]">more_vert</span></button>
+          </div>
+          <div>
+            <h3 class="font-headline-sm text-on-surface font-semibold mb-1 truncate">கட்டுரை_வரைவு.txt</h3>
+            <p class="font-body-sm text-on-surface-variant text-xs">Opened 2 hours ago</p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="group flex flex-col bg-surface-container-lowest/80 backdrop-blur-md border border-outline-variant/20 rounded-xl p-4 cursor-pointer hover:border-primary/40 hover:bg-surface-container-lowest transition-all hover:-translate-y-1 hover:shadow-lg">
+          <div class="flex items-start justify-between mb-8">
+            <div class="p-2 bg-secondary-container/20 rounded-lg border border-secondary/20">
+              <span class="material-symbols-outlined text-secondary text-[24px]">picture_as_pdf</span>
+            </div>
+            <button class="text-on-surface-variant opacity-0 group-hover:opacity-100 hover:text-on-surface transition-opacity"><span class="material-symbols-outlined text-[20px]">more_vert</span></button>
+          </div>
+          <div>
+            <h3 class="font-headline-sm text-on-surface font-semibold mb-1 truncate">Project_Notes_Final.pdf</h3>
+            <p class="font-body-sm text-on-surface-variant text-xs">Opened yesterday</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="group flex flex-col bg-surface-container-lowest/80 backdrop-blur-md border border-outline-variant/20 rounded-xl p-4 cursor-pointer hover:border-primary/40 hover:bg-surface-container-lowest transition-all hover:-translate-y-1 hover:shadow-lg">
+          <div class="flex items-start justify-between mb-8">
+            <div class="p-2 bg-tertiary-container/20 rounded-lg border border-tertiary/20">
+              <span class="material-symbols-outlined text-tertiary text-[24px]">folder</span>
+            </div>
+            <button class="text-on-surface-variant opacity-0 group-hover:opacity-100 hover:text-on-surface transition-opacity"><span class="material-symbols-outlined text-[20px]">more_vert</span></button>
+          </div>
+          <div>
+            <h3 class="font-headline-sm text-on-surface font-semibold mb-1 truncate">Tamil Literature</h3>
+            <p class="font-body-sm text-on-surface-variant text-xs">Updated last week</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- All Files List -->
+    <div class="flex flex-col bg-surface-container-low/60 backdrop-blur-md border border-outline-variant/20 rounded-xl overflow-hidden mt-2">
+      <div class="grid grid-cols-12 gap-4 p-4 border-b border-outline-variant/20 bg-surface-container-lowest/40 font-label-sm text-label-sm text-outline uppercase tracking-wider">
+        <div class="col-span-6 md:col-span-5">Name</div>
+        <div class="col-span-4 md:col-span-3">Date Modified</div>
+        <div class="hidden md:block md:col-span-3">Size</div>
+        <div class="col-span-2 md:col-span-1 text-right">Actions</div>
+      </div>
+      
+      <!-- List Items -->
+      <div class="flex flex-col">
+        <div class="grid grid-cols-12 gap-4 p-4 items-center border-b border-outline-variant/10 hover:bg-surface-container-highest/40 transition-colors cursor-pointer group">
+          <div class="col-span-6 md:col-span-5 flex items-center gap-3">
+            <span class="material-symbols-outlined text-tertiary text-[20px]">folder</span>
+            <span class="font-body-md font-medium text-on-surface truncate">Tamil Academy Coursework</span>
+          </div>
+          <div class="col-span-4 md:col-span-3 font-body-sm text-on-surface-variant">Oct 5, 2026</div>
+          <div class="hidden md:block md:col-span-3 font-body-sm text-on-surface-variant">--</div>
+          <div class="col-span-2 md:col-span-1 flex justify-end opacity-0 group-hover:opacity-100 transition-opacity">
+            <button class="text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined text-[20px]">more_horiz</span></button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-12 gap-4 p-4 items-center border-b border-outline-variant/10 hover:bg-surface-container-highest/40 transition-colors cursor-pointer group">
+          <div class="col-span-6 md:col-span-5 flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary text-[20px]">description</span>
+            <span class="font-body-md font-medium text-on-surface truncate">Meeting_Notes.txt</span>
+          </div>
+          <div class="col-span-4 md:col-span-3 font-body-sm text-on-surface-variant">Oct 1, 2026</div>
+          <div class="hidden md:block md:col-span-3 font-body-sm text-on-surface-variant">14 KB</div>
+          <div class="col-span-2 md:col-span-1 flex justify-end opacity-0 group-hover:opacity-100 transition-opacity">
+            <button class="text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined text-[20px]">more_horiz</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN TAB: PDF STUDIO -->
+<div class="flex flex-col w-full space-y-6 hidden" id="tab-pdf-studio">
+  <div class="w-full max-w-5xl mx-auto flex flex-col md:flex-row gap-6">
+    
+    <!-- PDF Configuration Panel -->
+    <div class="w-full md:w-1/3 flex flex-col gap-6">
+      <div class="bg-surface-container-low/85 backdrop-blur-xl border border-outline-variant/25 shadow-xl rounded-xl p-5 flex flex-col">
+        <div class="flex items-center gap-2 mb-6 pb-4 border-b border-outline-variant/20">
+          <div class="p-1.5 rounded-md bg-secondary-container/40 border border-secondary/30">
+            <span class="material-symbols-outlined text-secondary text-[20px]">picture_as_pdf</span>
+          </div>
+          <h2 class="font-headline-sm text-on-surface font-bold">PDF Export Settings</h2>
+        </div>
+
+        <div class="space-y-5">
+          <div class="flex flex-col gap-2">
+            <label class="font-label-sm text-label-sm text-outline uppercase tracking-wide">Paper Size</label>
+            <div class="grid grid-cols-2 gap-2">
+              <button class="px-3 py-2 rounded border border-primary/50 bg-primary/10 text-primary font-bold shadow-sm text-sm">A4 (Standard)</button>
+              <button class="px-3 py-2 rounded border border-outline-variant/30 hover:bg-surface-container text-on-surface-variant text-sm transition-colors">US Letter</button>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label class="font-label-sm text-label-sm text-outline uppercase tracking-wide">Typography Embed</label>
+            <select class="w-full bg-surface-container border border-outline-variant/30 rounded-lg px-3 py-2.5 text-on-surface font-body-sm focus:outline-none focus:border-primary/50">
+              <option>Noto Serif Tamil (Included)</option>
+              <option>Mukta Malar (Included)</option>
+              <option>System Default (Latha)</option>
+            </select>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label class="font-label-sm text-label-sm text-outline uppercase tracking-wide">Margins & Layout</label>
+            <div class="flex items-center justify-between bg-surface-container rounded-lg p-1 border border-outline-variant/20">
+              <button class="flex-1 py-1.5 rounded bg-surface-container-high text-on-surface text-sm font-medium shadow-sm">Normal</button>
+              <button class="flex-1 py-1.5 rounded hover:text-on-surface-variant text-sm transition-colors">Narrow</button>
+              <button class="flex-1 py-1.5 rounded hover:text-on-surface-variant text-sm transition-colors">Wide</button>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between pt-2">
+            <span class="font-body-sm text-on-surface-variant">Include Page Numbers</span>
+            <div class="w-10 h-5 bg-primary/40 rounded-full relative cursor-pointer shadow-inner">
+              <div class="absolute right-1 top-0.5 w-4 h-4 bg-primary rounded-full shadow"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-4 border-t border-outline-variant/20 flex flex-col gap-3">
+          <button class="w-full py-3 rounded-lg bg-primary text-on-primary font-bold shadow-[0_0_15px_rgba(232,193,118,0.3)] hover:shadow-[0_0_25px_rgba(232,193,118,0.6)] transition-all flex items-center justify-center gap-2">
+            <span class="material-symbols-outlined text-[20px]">download</span> Generate PDF
+          </button>
+          <button class="w-full py-2.5 rounded-lg border border-outline-variant/30 hover:bg-surface-container text-on-surface-variant transition-colors text-sm font-medium">
+            Preview Print
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- PDF Preview Panel -->
+    <div class="w-full md:w-2/3 bg-surface-container-low/60 backdrop-blur-sm border border-outline-variant/20 rounded-xl p-6 flex flex-col items-center justify-center relative overflow-hidden min-h-[500px]">
+      <!-- Background pattern -->
+      <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+      
+      <!-- A4 Paper Mockup -->
+      <div class="relative w-full max-w-sm aspect-[1/1.414] bg-[#f8f9fa] shadow-2xl rounded-sm border border-outline-variant/10 flex flex-col p-8 z-10 transform transition-transform hover:scale-[1.02] duration-500">
+        <div class="w-full h-4 bg-outline-variant/20 rounded-full mb-6 w-3/4"></div>
+        <div class="w-full h-2 bg-outline-variant/10 rounded-full mb-3"></div>
+        <div class="w-full h-2 bg-outline-variant/10 rounded-full mb-3"></div>
+        <div class="w-full h-2 bg-outline-variant/10 rounded-full mb-3 w-5/6"></div>
+        <div class="w-full h-2 bg-outline-variant/10 rounded-full mb-8 w-4/6"></div>
+        
+        <div class="w-full h-32 bg-primary/10 border border-primary/20 rounded-md mb-8 flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary/40 text-[48px]">image</span>
+        </div>
+        
+        <div class="w-full h-2 bg-outline-variant/10 rounded-full mb-3"></div>
+        <div class="w-full h-2 bg-outline-variant/10 rounded-full mb-3 w-11/12"></div>
+        <div class="w-full h-2 bg-outline-variant/10 rounded-full mb-3"></div>
+        
+        <div class="absolute bottom-6 right-8 text-[8px] text-outline-variant/50 font-mono">Page 1</div>
+      </div>
+      
+      <div class="mt-6 flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+        <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+        <span>Live Preview Mode</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="flex flex-col w-full space-y-6" id="tab-studio">
+<!-- EDITORIAL SURFACE SECTION -->
+<div class="relative w-full max-w-5xl mx-auto flex flex-col rounded-xl bg-surface-container-low/85 backdrop-blur-xl border border-outline-variant/25 shadow-2xl overflow-hidden">
+<!-- Floating Pill Toolbar for Formatting & Actions -->
+<div class="flex items-center justify-between px-4 py-2.5 bg-surface-container-lowest/80 backdrop-blur-md border-b border-outline-variant/20">
+<div class="flex items-center gap-1.5">
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" onclick="formatCanvasText('bold')" title="Bold">
+<span class="material-symbols-outlined text-[18px]">format_bold</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" onclick="formatCanvasText('italic')" title="Italic">
+<span class="material-symbols-outlined text-[18px]">format_italic</span>
+</button>
+<div class="h-4 w-px bg-surface-container-highest mx-1"></div>
+<!-- Pulli Rule Badge with rotating ring -->
+<div class="relative flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container/30 border border-secondary/40 text-secondary font-label-md text-label-md shadow-inner">
+<div class="relative w-4 h-4 flex items-center justify-center">
+<span class="absolute inset-0 rounded-full border border-dashed border-secondary/70 pulli-ring"></span>
+<span class="font-headline-sm text-headline-sm leading-none text-secondary">்</span>
+</div>
+<span>Pulli Auto-join active (F Key)</span>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-surface-container/90 border border-outline-variant/25 text-on-surface-variant font-label-sm text-label-sm ml-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>Unicode: 0B85–0BD7</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-1.5 px-3 py-1 rounded bg-surface-container-high/90 hover:bg-primary hover:text-on-primary text-on-surface transition-all font-label-md text-label-md shadow-sm border border-outline-variant/25" onclick="copyCanvasContent()">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+<span id="copy-label">Copy Tamil</span>
+</button>
+<button class="flex items-center gap-1.5 px-2.5 py-1 rounded hover:bg-error-container hover:text-on-error-container text-on-surface-variant transition-colors font-label-md text-label-md" onclick="clearCanvasContent()" title="Clear Canvas">
+<span class="material-symbols-outlined text-[16px]">delete_sweep</span>
+<span>Clear</span>
+</button>
+</div>
+</div>
+<!-- Syllable Composition Live Inspector Bar with Animated Aura -->
+<div class="flex items-center justify-between px-6 py-2.5 bg-surface-container/70 backdrop-blur-md border-b border-outline-variant/15 text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-2.5">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">LIGATURE BUFFER:</span>
+<div class="aura-buffer flex items-center gap-2 px-3 py-0.5 rounded-md bg-surface-container-lowest/90 border border-primary/40 font-headline-sm text-headline-sm text-primary transition-all" id="syllable-display">
+<span>க்</span>
+<span class="text-on-surface-variant text-body-sm">+</span>
+<span>அ</span>
+<span class="text-on-surface-variant text-body-sm">=</span>
+<span class="text-primary font-bold drop-shadow-[0_0_6px_rgba(232,193,118,0.5)]">க</span>
+</div>
+<span class="text-on-surface-variant text-body-sm italic ml-2 hidden sm:inline">Uyirmey composition confirmed via Tamil99 state engine</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Active Layer: <strong class="text-primary">Primary (அ-ஔ / க்)</strong></span>
+</div>
+</div>
+<!-- Canvas Editor Area -->
+<div class="relative p-6 md:p-8 min-h-[220px] bg-gradient-to-b from-surface-container-low/60 to-surface-container-lowest/80 backdrop-blur-sm">
+<textarea class="w-full bg-transparent resize-none focus:outline-none text-on-surface font-headline-md leading-[1.8] tracking-wide placeholder-on-surface-variant/40 selection:bg-secondary-container/60 selection:text-white" id="tamil-canvas" placeholder="தமிழ் தட்டச்சு செய்க... Type using Tamil99 layout or click the physical keybed below..." style="font-size: 19px; min-height: 180px;">தமிழ் மொழி உலகின் தொன்மையான செம்மொழிகளில் ஒன்றாகும். அதன் தனிச்சிறப்பு ஒலிப்பு நயமும், எழுத்துக்களின் ஒழுங்கமைப்பும் ஆகும்.</textarea>
+<!-- Live Custom Glowing Caret Indicator with 1.06s Radiant Maroon Blur Halo Pulse -->
+<div class="absolute bottom-4 right-6 flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-lowest/80 border border-secondary/35 backdrop-blur-md shadow-lg">
+<span class="caret-glow w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-secondary font-bold tracking-wide">Caret 1.06s Pulse Active</span>
+</div>
+</div>
+</div>
+<!-- LIVE RHYTHMIC TELEMETRY STRIP (56px) WITH FLOWING WAVEFORM -->
+<div class="w-full max-w-5xl mx-auto h-14 bg-surface-container-low/80 backdrop-blur-xl border border-outline-variant/20 rounded-xl px-4 flex items-center justify-between shadow-xl">
+<!-- Rhythm Cadence Visualizer SVG Graph with Animated Waveflow -->
+<div class="flex items-center gap-3 flex-1 max-w-xs md:max-w-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">CADENCE</span>
+<span class="font-label-md text-label-md text-primary font-bold">Steady 142ms</span>
+</div>
+<div class="w-full h-8 flex items-center relative">
+<svg class="w-full h-7 text-primary overflow-visible filter drop-shadow-[0_0_6px_rgba(232,193,118,0.45)]" fill="none" viewbox="0 0 200 28">
+<path class="wave-flow-line" d="M0 14 Q 10 4, 20 14 T 40 14 T 60 8 T 80 20 T 100 14 T 120 6 T 140 22 T 160 14 T 180 10 T 200 14" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.25"></path>
+<circle class="fill-secondary caret-glow" cx="160" cy="14" r="3.5"></circle>
+</svg>
+</div>
+</div>
+<!-- Precision Tabular Indicators -->
+<div class="flex items-center gap-4 md:gap-8 font-label-md text-label-md">
+<div class="flex flex-col text-right">
+<span class="font-label-sm text-label-sm text-outline">SPEED</span>
+<span class="text-on-surface font-bold flex items-center gap-1 justify-end">
+            48 <span class="text-label-sm font-normal text-on-surface-variant">WPM</span>
+<span class="text-primary text-[10px] font-bold">▲ +4.2</span>
+</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-label-sm text-label-sm text-outline">ACCURACY</span>
+<span class="text-on-surface font-bold">98.6%</span>
+</div>
+<div class="hidden sm:flex flex-col text-right">
+<span class="font-label-sm text-label-sm text-outline">CHARS</span>
+<span class="text-on-surface font-bold" id="stat-chars">1,420</span>
+</div>
+<div class="hidden md:flex flex-col text-right">
+<span class="font-label-sm text-label-sm text-outline">SESSION</span>
+<span class="text-on-surface font-bold">24m 18s</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-label-sm text-label-sm text-outline">LATENCY</span>
+<span class="text-secondary font-bold">0 Typo</span>
+</div>
+</div>
+</div>
+<!-- THE SHOWPIECE PHYSICAL TAMIL99 VIRTUAL KEYBOARD WITH KINETIC GLOWS -->
+<div class="w-full max-w-5xl mx-auto flex flex-col bg-surface-container-lowest/85 backdrop-blur-xl border border-outline-variant/25 p-4 md:p-5 rounded-2xl shadow-2xl transition-all" id="virtual-keyboard-wrapper">
+<div class="flex items-center justify-between mb-3 px-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary">keyboard</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Tamil99 Standard Physical Matrix</h2>
+<span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 text-on-surface-variant font-label-sm text-label-sm ml-2">ISO Mechanical Bed</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-on-surface-variant font-label-sm text-label-sm hidden sm:inline">Left: Uyir (Vowels) · Right: Mei (Consonants)</span>
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" onclick="toggleKeyboard()" title="Minimize Keyboard">
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</button>
+</div>
+</div>
+<!-- KEYBOARD HARDWARE BASE CHASSIS -->
+<div class="w-full bg-surface-container-low/90 backdrop-blur-md p-2 md:p-3 rounded-xl shadow-inner border border-outline-variant/20 flex flex-col gap-1.5 select-none font-code-keycap">
+<!-- Row 1: Numbers & Symbols -->
+<div class="flex gap-1.5 w-full">
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all text-left" onclick="pressKey('`')">
+<span class="font-label-sm text-label-sm text-outline">~</span>
+<span class="text-center font-bold text-on-surface text-sm">`</span>
+</button>
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all text-left" onclick="pressKey('1')">
+<span class="font-label-sm text-label-sm text-outline">!</span>
+<span class="text-center font-bold text-on-surface text-sm">1</span>
+</button>
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all text-left" onclick="pressKey('2')">
+<span class="font-label-sm text-label-sm text-outline">@</span>
+<span class="text-center font-bold text-on-surface text-sm">2</span>
+</button>
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all text-left" onclick="pressKey('3')">
+<span class="font-label-sm text-label-sm text-outline">#</span>
+<span class="text-center font-bold text-on-surface text-sm">3</span>
+</button>
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all text-left" onclick="pressKey('4')">
+<span class="font-label-sm text-label-sm text-outline">$</span>
+<span class="text-center font-bold text-on-surface text-sm">4</span>
+</button>
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all text-left" onclick="pressKey('5')">
+<span class="font-label-sm text-label-sm text-outline">%</span>
+<span class="text-center font-bold text-on-surface text-sm">5</span>
+</button>
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all text-left" onclick="pressKey('6')">
+<span class="font-label-sm text-label-sm text-outline">^</span>
+<span class="text-center font-bold text-on-surface text-sm">6</span>
+</button>
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all text-left" onclick="pressKey('7')">
+<span class="font-label-sm text-label-sm text-outline">&amp;</span>
+<span class="text-center font-bold text-on-surface text-sm">7</span>
+</button>
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all text-left" onclick="pressKey('8')">
+<span class="font-label-sm text-label-sm text-outline">*</span>
+<span class="text-center font-bold text-on-surface text-sm">8</span>
+</button>
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all text-left" onclick="pressKey('9')">
+<span class="font-label-sm text-label-sm text-outline">(</span>
+<span class="text-center font-bold text-on-surface text-sm">9</span>
+</button>
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all text-left" onclick="pressKey('0')">
+<span class="font-label-sm text-label-sm text-outline">)</span>
+<span class="text-center font-bold text-on-surface text-sm">0</span>
+</button>
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all text-left" onclick="pressKey('-')">
+<span class="font-label-sm text-label-sm text-outline">_</span>
+<span class="text-center font-bold text-on-surface text-sm">-</span>
+</button>
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container-high/90 border border-primary/40 key-glow-animated flex flex-col justify-between p-1 shadow hover:bg-surface-container active:translate-y-0.5 transition-all text-left" onclick="pressKey('ஸ்ரீ')">
+<span class="font-label-sm text-label-sm text-primary font-bold">Sri</span>
+<span class="text-center font-headline-sm text-headline-sm text-primary font-bold leading-none">ஸ்ரீ</span>
+</button>
+<button class="tamil-key w-20 h-12 rounded bg-surface-container-highest border border-outline-variant/20 flex items-center justify-center p-1 shadow hover:bg-surface-container-high active:translate-y-0.5 transition-all" onclick="pressBackspace()">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">backspace</span>
+</button>
+</div>
+<!-- Row 2: Vowels Left / Mei Right -->
+<div class="flex gap-1.5 w-full">
+<button class="w-16 h-12 rounded bg-surface-container-highest border border-outline-variant/20 flex items-center justify-center font-label-sm text-label-sm text-on-surface-variant">Tab</button>
+<!-- Q: ஆ -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('ஆ')">
+<span class="font-label-sm text-label-sm text-outline">Q</span>
+<span class="text-center font-headline-sm text-headline-sm text-on-surface font-bold leading-none">ஆ</span>
+</button>
+<!-- W: ஈ -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('ஈ')">
+<span class="font-label-sm text-label-sm text-outline">W</span>
+<span class="text-center font-headline-sm text-headline-sm text-on-surface font-bold leading-none">ஈ</span>
+</button>
+<!-- E: ஊ -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('ஊ')">
+<span class="font-label-sm text-label-sm text-outline">E</span>
+<span class="text-center font-headline-sm text-headline-sm text-on-surface font-bold leading-none">ஊ</span>
+</button>
+<!-- R: ஐ -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('ஐ')">
+<span class="font-label-sm text-label-sm text-outline">R</span>
+<span class="text-center font-headline-sm text-headline-sm text-on-surface font-bold leading-none">ஐ</span>
+</button>
+<!-- T: ஏ -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('ஏ')">
+<span class="font-label-sm text-label-sm text-outline">T</span>
+<span class="text-center font-headline-sm text-headline-sm text-on-surface font-bold leading-none">ஏ</span>
+</button>
+<!-- Y: ள (Glow Key) -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 key-glow-animated flex flex-col justify-between p-1 shadow hover:bg-surface-container-high active:translate-y-0.5 transition-all" onclick="pressKey('ள')">
+<span class="font-label-sm text-label-sm text-outline">Y</span>
+<span class="text-center font-headline-sm text-headline-sm text-primary font-bold leading-none">ள</span>
+</button>
+<!-- U: ற -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('ற')">
+<span class="font-label-sm text-label-sm text-outline">U</span>
+<span class="text-center font-headline-sm text-headline-sm text-primary font-bold leading-none">ற</span>
+</button>
+<!-- I: ன -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('ன')">
+<span class="font-label-sm text-label-sm text-outline">I</span>
+<span class="text-center font-headline-sm text-headline-sm text-primary font-bold leading-none">ன</span>
+</button>
+<!-- O: ட -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('ட')">
+<span class="font-label-sm text-label-sm text-outline">O</span>
+<span class="text-center font-headline-sm text-headline-sm text-primary font-bold leading-none">ட</span>
+</button>
+<!-- P: ண -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('ண')">
+<span class="font-label-sm text-label-sm text-outline">P</span>
+<span class="text-center font-headline-sm text-headline-sm text-primary font-bold leading-none">ண</span>
+</button>
+<!-- [ : ச -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('ச')">
+<span class="font-label-sm text-label-sm text-outline">{ [</span>
+<span class="text-center font-headline-sm text-headline-sm text-primary font-bold leading-none">ச</span>
+</button>
+<!-- ] : ஞ -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('ஞ')">
+<span class="font-label-sm text-label-sm text-outline">} ]</span>
+<span class="text-center font-headline-sm text-headline-sm text-primary font-bold leading-none">ஞ</span>
+</button>
+<!-- \ -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('/')">
+<span class="font-label-sm text-label-sm text-outline">|</span>
+<span class="text-center font-bold text-on-surface text-sm">\</span>
+</button>
+</div>
+<!-- Row 3: Home Row (Vowels A, S, D & F Pulli; G, H, J, K, L Consonants) -->
+<div class="flex gap-1.5 w-full">
+<button class="w-20 h-12 rounded bg-surface-container-highest border border-outline-variant/20 flex items-center justify-center font-label-sm text-label-sm text-on-surface-variant">Caps</button>
+<!-- A: அ -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('அ')">
+<span class="font-label-sm text-label-sm text-outline">A</span>
+<span class="text-center font-headline-sm text-headline-sm text-on-surface font-bold leading-none">அ</span>
+</button>
+<!-- S: இ -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('இ')">
+<span class="font-label-sm text-label-sm text-outline">S</span>
+<span class="text-center font-headline-sm text-headline-sm text-on-surface font-bold leading-none">இ</span>
+</button>
+<!-- D: உ -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('உ')">
+<span class="font-label-sm text-label-sm text-outline">D</span>
+<span class="text-center font-headline-sm text-headline-sm text-on-surface font-bold leading-none">உ</span>
+</button>
+<!-- F: PULLI (்) - GOLD/MAROON ANCHOR KEY WITH KINETIC BREATHING PULSE -->
+<button class="tamil-key flex-1 h-12 rounded bg-secondary-container/90 border border-secondary flex flex-col justify-between p-1 shadow hover:bg-secondary-container active:translate-y-0.5 transition-all key-glow-animated" onclick="pressKey('்')">
+<span class="font-label-sm text-label-sm text-secondary font-bold">F (Pulli)</span>
+<span class="text-center font-headline-lg text-headline-lg text-on-secondary-container font-black leading-none drop-shadow-[0_0_8px_rgba(255,178,190,0.6)]">்</span>
+</button>
+<!-- G: எ -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('எ')">
+<span class="font-label-sm text-label-sm text-outline">G</span>
+<span class="text-center font-headline-sm text-headline-sm text-on-surface font-bold leading-none">எ</span>
+</button>
+<!-- H: க (Anchor Consonant - Glowing) -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-primary/35 key-glow-animated flex flex-col justify-between p-1 shadow hover:bg-surface-container-high active:translate-y-0.5 transition-all" onclick="pressKey('க')">
+<span class="font-label-sm text-label-sm text-outline">H</span>
+<span class="text-center font-headline-sm text-headline-sm text-primary font-bold leading-none">க</span>
+</button>
+<!-- J: ப -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('ப')">
+<span class="font-label-sm text-label-sm text-outline">J</span>
+<span class="text-center font-headline-sm text-headline-sm text-primary font-bold leading-none">ப</span>
+</button>
+<!-- K: ம -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('ம')">
+<span class="font-label-sm text-label-sm text-outline">K</span>
+<span class="text-center font-headline-sm text-headline-sm text-primary font-bold leading-none">ம</span>
+</button>
+<!-- L: த -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('த')">
+<span class="font-label-sm text-label-sm text-outline">L</span>
+<span class="text-center font-headline-sm text-headline-sm text-primary font-bold leading-none">த</span>
+</button>
+<!-- ; : ந -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('ந')">
+<span class="font-label-sm text-label-sm text-outline">: ;</span>
+<span class="text-center font-headline-sm text-headline-sm text-primary font-bold leading-none">ந</span>
+</button>
+<!-- ' : ய -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('ய')">
+<span class="font-label-sm text-label-sm text-outline">" '</span>
+<span class="text-center font-headline-sm text-headline-sm text-primary font-bold leading-none">ய</span>
+</button>
+<button class="w-24 h-12 rounded bg-primary-container text-on-primary-container font-bold border border-primary/40 flex items-center justify-center p-1 shadow hover:bg-primary transition-all" onclick="pressEnter()">
+<span class="material-symbols-outlined text-[18px]">keyboard_return</span>
+</button>
+</div>
+<!-- Row 4: Bottom Row (Vowels & Remaining Consonants) -->
+<div class="flex gap-1.5 w-full">
+<button class="w-24 h-12 rounded bg-surface-container-highest border border-outline-variant/20 flex items-center justify-center font-label-sm text-label-sm text-on-surface-variant gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary halo-ring"></span>
+<span>Shift</span>
+</button>
+<!-- Z: ஒ -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('ஒ')">
+<span class="font-label-sm text-label-sm text-outline">Z</span>
+<span class="text-center font-headline-sm text-headline-sm text-on-surface font-bold leading-none">ஒ</span>
+</button>
+<!-- X: ஓ -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('ஓ')">
+<span class="font-label-sm text-label-sm text-outline">X</span>
+<span class="text-center font-headline-sm text-headline-sm text-on-surface font-bold leading-none">ஓ</span>
+</button>
+<!-- C: ஔ -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('ஔ')">
+<span class="font-label-sm text-label-sm text-outline">C</span>
+<span class="text-center font-headline-sm text-headline-sm text-on-surface font-bold leading-none">ஔ</span>
+</button>
+<!-- V: வ -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('வ')">
+<span class="font-label-sm text-label-sm text-outline">V</span>
+<span class="text-center font-headline-sm text-headline-sm text-primary font-bold leading-none">வ</span>
+</button>
+<!-- B: ங -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('ங')">
+<span class="font-label-sm text-label-sm text-outline">B</span>
+<span class="text-center font-headline-sm text-headline-sm text-primary font-bold leading-none">ங</span>
+</button>
+<!-- N: ல -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('ல')">
+<span class="font-label-sm text-label-sm text-outline">N</span>
+<span class="text-center font-headline-sm text-headline-sm text-primary font-bold leading-none">ல</span>
+</button>
+<!-- M: ர -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('ர')">
+<span class="font-label-sm text-label-sm text-outline">M</span>
+<span class="text-center font-headline-sm text-headline-sm text-primary font-bold leading-none">ர</span>
+</button>
+<!-- , : ழ -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('ழ')">
+<span class="font-label-sm text-label-sm text-outline">&lt; ,</span>
+<span class="text-center font-headline-sm text-headline-sm text-primary font-bold leading-none">ழ</span>
+</button>
+<!-- . : . -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container/90 border border-outline-variant/20 flex flex-col justify-between p-1 shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all" onclick="pressKey('.')">
+<span class="font-label-sm text-label-sm text-outline">&gt; .</span>
+<span class="text-center font-headline-sm text-headline-sm text-on-surface font-bold leading-none">.</span>
+</button>
+<!-- / : ஃ (Aaydha Ezhuthu) -->
+<button class="tamil-key flex-1 h-12 rounded bg-surface-container-high/90 border border-primary/30 flex flex-col justify-between p-1 shadow hover:bg-surface-container active:translate-y-0.5 transition-all" onclick="pressKey('ஃ')">
+<span class="font-label-sm text-label-sm text-primary font-bold">Aytham</span>
+<span class="text-center font-headline-sm text-headline-sm text-primary font-bold leading-none">ஃ</span>
+</button>
+<button class="w-24 h-12 rounded bg-surface-container-highest border border-outline-variant/20 flex items-center justify-center font-label-sm text-label-sm text-on-surface-variant">Shift</button>
+</div>
+<!-- Row 5: Spacebar & Modifiers -->
+<div class="flex gap-1.5 w-full">
+<button class="w-14 h-10 rounded bg-surface-container/90 border border-outline-variant/20 flex items-center justify-center font-label-sm text-label-sm text-on-surface-variant">Ctrl</button>
+<button class="w-14 h-10 rounded bg-surface-container/90 border border-outline-variant/20 flex items-center justify-center font-label-sm text-label-sm text-on-surface-variant">Alt</button>
+<button class="flex-1 h-10 rounded bg-surface-container/90 border border-outline-variant/20 flex items-center justify-center shadow hover:bg-surface-container-high hover:border-primary/40 active:translate-y-0.5 transition-all font-label-md text-label-md text-outline" onclick="pressKey(' ')">
+            SPACE (இடைவெளி)
+          </button>
+<button class="w-16 h-10 rounded bg-surface-container/90 border border-outline-variant/20 flex items-center justify-center font-label-sm text-label-sm text-on-surface-variant">AltGr</button>
+<button class="w-24 h-10 rounded bg-surface-container-highest border border-outline-variant/20 flex items-center justify-center font-label-sm text-label-sm text-on-surface-variant gap-1 hover:text-on-surface" onclick="toggleKeyboard()">
+<span class="material-symbols-outlined text-[16px]">visibility_off</span>
+<span>Hide (F8)</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- MAIN TAB 2: ENGLISH -> TAMIL TRANSLITERATION LIVE MORPHING -->
+<div class="hidden flex-col w-full max-w-5xl mx-auto space-y-6" id="tab-translit">
+<div class="p-6 rounded-xl bg-surface-container-low/80 backdrop-blur-xl border border-outline-variant/25 shadow-xl flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Phonetic English ➔ Tamil Morphing Engine</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Real-time transliteration with automatic ligature resolver &amp; grammar confidence scores.</p>
+</div>
+<span class="px-3 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary font-label-sm text-label-sm font-bold shadow-sm">Neural 96.4% Accuracy</span>
+</div>
+<!-- Live Transliteration Dual Pane -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+<!-- English Input -->
+<div class="flex flex-col gap-2 p-4 rounded-lg bg-surface-container-lowest/85 backdrop-blur-sm border border-outline-variant/20 shadow-inner">
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm">
+<span>INPUT: ROMANIZED PHONETIC</span>
+<span>Type English</span>
+</div>
+<textarea class="w-full bg-transparent resize-none focus:outline-none font-body-lg text-body-lg text-on-surface min-h-[140px]" id="translit-input" oninput="runLiveTransliteration(this.value)" placeholder="Type: vanakkam nanbargale...">vanakkam nanbargale eppadi irukkeergal</textarea>
+</div>
+<!-- Tamil Output -->
+<div class="flex flex-col gap-2 p-4 rounded-lg bg-surface-container/85 backdrop-blur-sm border border-primary/30 shadow-inner">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-primary font-bold">OUTPUT: LIVE TAMIL UNICODE</span>
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded bg-primary-container text-on-primary-container font-bold shadow-sm">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span>96% Confidence</span>
+</div>
+</div>
+<div class="font-headline-md text-headline-md text-primary leading-relaxed min-h-[140px] pt-1" id="translit-output">வணக்கம் நண்பர்களே எப்படி இருக்கிறீர்கள்</div>
+</div>
+</div>
+<!-- Live Confidence Chips -->
+<div class="flex flex-wrap items-center gap-2 pt-2">
+<span class="font-label-sm text-label-sm text-outline">MORPH SUGGESTIONS:</span>
+<button class="px-3 py-1 rounded-full bg-surface-container-highest/90 border border-outline-variant/20 text-on-surface font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-all" onclick="applySuggestion('வணக்கம்')">வணக்கம் (99%)</button>
+<button class="px-3 py-1 rounded-full bg-surface-container-highest/90 border border-outline-variant/20 text-on-surface font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-all" onclick="applySuggestion('நண்பர்களே')">நண்பர்களே (97%)</button>
+<button class="px-3 py-1 rounded-full bg-surface-container-highest/90 border border-outline-variant/20 text-on-surface font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-all" onclick="applySuggestion('வணங்குகிறேன்')">வணங்குகிறேன் (88%)</button>
+</div>
+</div>
+</div>
+<!-- MAIN TAB 3: VOICE TO TEXT ORB -->
+<div class="hidden flex-col w-full max-w-5xl mx-auto space-y-6" id="tab-voice">
+<div class="p-8 rounded-xl bg-surface-container-low/80 backdrop-blur-xl border border-outline-variant/25 shadow-xl flex flex-col items-center text-center gap-6">
+<div class="flex flex-col items-center gap-2 max-w-lg">
+<span class="px-3 py-1 rounded-full bg-secondary-container/80 border border-secondary/40 text-secondary font-label-sm text-label-sm font-bold">ACOUSTIC TAMIL MODEL v4.2</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Continuous Tamil Speech Recognition</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Speak in natural spoken Tamil or formal Senthamil. The engine preserves correct sandhi, pulli, and punctuations.</p>
+</div>
+<!-- 160px Pulsating Mic Orb -->
+<div class="relative my-4 flex items-center justify-center">
+<!-- Pulse Rings -->
+<div class="absolute w-48 h-48 rounded-full bg-secondary/20 animate-ping opacity-75" id="voice-ring-1"></div>
+<div class="absolute w-40 h-40 rounded-full bg-secondary-container/40 animate-pulse" id="voice-ring-2"></div>
+<!-- Center Orb Button -->
+<button class="relative z-10 w-36 h-36 rounded-full bg-secondary-container hover:bg-secondary text-on-secondary flex flex-col items-center justify-center shadow-2xl transition-all group border-2 border-secondary/50" id="voice-toggle-btn" onclick="toggleVoiceDictation()">
+<span class="material-symbols-outlined text-[44px] transition-transform group-hover:scale-110 drop-shadow-[0_0_8px_rgba(255,178,190,0.6)]">mic</span>
+<span class="font-label-sm text-label-sm font-bold mt-1 tracking-wider uppercase" id="voice-btn-status">LISTENING...</span>
+</button>
+</div>
+<!-- Interim Speech Transcript Stream -->
+<div class="w-full max-w-2xl bg-surface-container-lowest/85 backdrop-blur-sm border border-outline-variant/20 p-5 rounded-xl shadow-inner text-left flex flex-col gap-2">
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm">
+<span>INTERIM STREAM</span>
+<span class="text-secondary font-bold">16kHz Sample Rate</span>
+</div>
+<p class="font-headline-sm text-headline-sm text-on-surface leading-relaxed" id="voice-transcript">
+          "இன்றைய அறிவியல் கருத்தரங்கில் நாம் அனைவரும் தமிழின் பன்முகத்தன்மையை பற்றி விவாதிக்கிறோம்..."
+        </p>
+</div>
+</div>
+</div>
+<!-- MAIN TAB 4: TYPING ARENA -->
+<div class="hidden flex-col w-full max-w-5xl mx-auto space-y-6" id="tab-arena">
+<div class="p-6 rounded-xl bg-surface-container-low/80 backdrop-blur-xl border border-outline-variant/25 shadow-xl flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Typing Arena: Sangam Sprint</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Compete in standardized speed tests across classic Thirukkural and contemporary prose.</p>
+</div>
+<button class="px-4 py-2 rounded bg-primary text-on-primary font-label-lg text-label-lg font-bold shadow-md hover:bg-primary-fixed transition-colors">Start 60s Challenge</button>
+</div>
+<!-- Challenge Passage Box -->
+<div class="p-5 rounded-lg bg-surface-container-lowest/85 backdrop-blur-sm border border-outline-variant/20 leading-loose font-headline-sm text-headline-sm text-on-surface-variant">
+<span class="text-primary font-bold">அகர முதல எழுத்தெல்லாம்</span> ஆதி பகவன் முதற்றே உலகு. கற்றதனால் ஆய பயன்கொல் வாலறிவன் நற்றாள் தொழாஅர் எனின்.
+      </div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+<div class="p-4 rounded-lg bg-surface-container/80 backdrop-blur-sm border border-outline-variant/20 shadow-sm">
+<span class="font-label-sm text-label-sm text-outline">CURRENT STREAK</span>
+<p class="font-headline-lg text-headline-lg text-on-surface mt-1">14 Words</p>
+</div>
+<div class="p-4 rounded-lg bg-surface-container/80 backdrop-blur-sm border border-outline-variant/20 shadow-sm">
+<span class="font-label-sm text-label-sm text-outline">ERROR COUNT</span>
+<p class="font-headline-lg text-headline-lg text-secondary mt-1">0 Faults</p>
+</div>
+<div class="p-4 rounded-lg bg-surface-container/80 backdrop-blur-sm border border-outline-variant/20 shadow-sm">
+<span class="font-label-sm text-label-sm text-outline">TIME REMAINING</span>
+<p class="font-headline-lg text-headline-lg text-primary mt-1">00:46</p>
+</div>
+</div>
+</div>
+</div>
+<!-- MAIN TAB 5: TAMIL ACADEMY -->
+<div class="hidden flex-col w-full max-w-5xl mx-auto space-y-6" id="tab-academy">
+<div class="p-6 rounded-xl bg-surface-container-low/80 backdrop-blur-xl border border-outline-variant/25 shadow-xl">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Tamil Academy: Mastery Modules</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Interactive pedagogical guides for Tamil99 finger assignments and classical letter formations.</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="p-4 rounded-lg bg-surface-container/80 backdrop-blur-sm border border-outline-variant/20 shadow-sm flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-primary font-bold">MODULE 01</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1">Uyir Ezhuthukkal (12 Vowels)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">Master left-hand spatial anchoring from அ to ஔ without looking down.</p>
+</div>
+<button class="mt-4 px-3 py-1.5 rounded bg-surface-container-highest/90 border border-outline-variant/20 text-on-surface font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-all">Start Drill</button>
+</div>
+<div class="p-4 rounded-lg bg-surface-container/80 backdrop-blur-sm border border-outline-variant/20 shadow-sm flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-secondary font-bold">MODULE 02</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1">Pulli &amp; Mei Mechanics</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">The crucial F-key anchor: understand how virama operates before and after consonants.</p>
+</div>
+<button class="mt-4 px-3 py-1.5 rounded bg-surface-container-highest/90 border border-outline-variant/20 text-on-surface font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-all">Start Drill</button>
+</div>
+<div class="p-4 rounded-lg bg-surface-container/80 backdrop-blur-sm border border-outline-variant/20 shadow-sm flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-outline font-bold">MODULE 03</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1">Grantha Script &amp; Special Ligatures</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">Mastering ஜ, ஷ, ஸ, ஹ, க்ஷ, and the honorific ஸ்ரீ glyphs.</p>
+</div>
+<button class="mt-4 px-3 py-1.5 rounded bg-surface-container-highest/90 border border-outline-variant/20 text-on-surface font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-all">Start Drill</button>
+</div>
+</div>
+</div>
+</div>
+<!-- MAIN TAB 6: FORM ASSISTANT -->
+<div class="hidden flex-col w-full max-w-5xl mx-auto space-y-6" id="tab-forms">
+<div class="p-6 rounded-xl bg-surface-container-low/80 backdrop-blur-xl border border-outline-variant/25 shadow-xl">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Government &amp; Academic Form Assistant</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Dual-script auto filling with TN-eGovernance compliant Unicode standards.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="font-label-sm text-label-sm text-outline">விண்ணப்பதாரர் பெயர் (Full Name)</label>
+<input class="w-full mt-1 p-2.5 rounded bg-surface-container-lowest/85 border border-outline-variant/20 text-on-surface font-body-md focus:outline-none focus:border-primary/50" type="text" value="மு. கவிபாரதி"/>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-outline">முகவரி (Residential Address)</label>
+<input class="w-full mt-1 p-2.5 rounded bg-surface-container-lowest/85 border border-outline-variant/20 text-on-surface font-body-md focus:outline-none focus:border-primary/50" type="text" value="எண் 42, பாரதி சாலை, மதுரை"/>
+</div>
+</div>
+</div>
+</div>
+<!-- MAIN TAB 7: DEVELOPER SDK -->
+<div class="hidden flex-col w-full max-w-5xl mx-auto space-y-6" id="tab-sdk">
+<div class="p-6 rounded-xl bg-surface-container-low/80 backdrop-blur-xl border border-outline-variant/25 shadow-xl">
+<div class="flex items-center justify-between mb-3">
+<h2 class="font-headline-md text-headline-md text-on-surface">Tamil99 Native JavaScript Engine SDK</h2>
+<span class="px-2.5 py-0.5 rounded bg-surface-container border border-primary/30 font-code-keycap text-code-keycap text-primary">npm i @tamil99/core</span>
+</div>
+<pre class="p-4 rounded-lg bg-surface-container-lowest/85 border border-outline-variant/20 text-on-surface font-code-keycap text-body-sm overflow-x-auto leading-relaxed">import { Tamil99Engine, Transliterate } from '@tamil99/core';
+
+const engine = new Tamil99Engine({ mode: 'strict', pulliAnchor: true });
+const result = engine.feedKey('h').feedKey('f'); // 'க' + '்' = 'க்'
+console.log(result.composed); // 'க்'</pre>
+</div>
+</div>
+<!-- PRODUCTIVITY ORBIT & QUICK SWITCH PANEL WITH GLASS SHEEN & HOVER ANIMATION -->
+<div class="w-full max-w-5xl mx-auto mt-8 pt-4">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">hub</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Productivity Orbit &amp; Quick Launch</h3>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Global Access Accelerators</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+<!-- Node 1 -->
+<button class="glass-sheen p-3.5 rounded-xl bg-surface-container-low/80 backdrop-blur-md border border-outline-variant/20 hover:border-primary/50 hover:bg-surface-container-high/90 hover:-translate-y-0.5 transition-all text-left flex flex-col justify-between h-28 shadow-md group" onclick="switchWorkspaceTab('studio')">
+<div class="flex items-center justify-between w-full">
+<span class="material-symbols-outlined text-[20px] text-primary group-hover:scale-110 transition-transform">keyboard</span>
+<kbd class="px-1.5 py-0.2 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm border border-outline-variant/30">Ctrl+1</kbd>
+</div>
+<div>
+<p class="font-label-lg text-label-lg font-bold text-on-surface">Tamil99 Studio</p>
+<span class="font-label-sm text-label-sm text-outline">Master Canvas</span>
+</div>
+</button>
+<!-- Node 2 -->
+<button class="glass-sheen p-3.5 rounded-xl bg-surface-container-low/80 backdrop-blur-md border border-outline-variant/20 hover:border-primary/50 hover:bg-surface-container-high/90 hover:-translate-y-0.5 transition-all text-left flex flex-col justify-between h-28 shadow-md group" onclick="switchWorkspaceTab('translit')">
+<div class="flex items-center justify-between w-full">
+<span class="material-symbols-outlined text-[20px] text-primary group-hover:scale-110 transition-transform">translate</span>
+<kbd class="px-1.5 py-0.2 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm border border-outline-variant/30">Ctrl+2</kbd>
+</div>
+<div>
+<p class="font-label-lg text-label-lg font-bold text-on-surface">Phonetic Morph</p>
+<span class="font-label-sm text-label-sm text-outline">English→Tamil</span>
+</div>
+</button>
+<!-- Node 3 -->
+<button class="glass-sheen p-3.5 rounded-xl bg-surface-container-low/80 backdrop-blur-md border border-outline-variant/20 hover:border-secondary/50 hover:bg-surface-container-high/90 hover:-translate-y-0.5 transition-all text-left flex flex-col justify-between h-28 shadow-md group" onclick="switchWorkspaceTab('voice')">
+<div class="flex items-center justify-between w-full">
+<span class="material-symbols-outlined text-[20px] text-secondary group-hover:scale-110 transition-transform">mic</span>
+<kbd class="px-1.5 py-0.2 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm border border-outline-variant/30">Ctrl+3</kbd>
+</div>
+<div>
+<p class="font-label-lg text-label-lg font-bold text-on-surface">Voice Orb</p>
+<span class="font-label-sm text-label-sm text-outline">Acoustic Tamil</span>
+</div>
+</button>
+<!-- Node 4 -->
+<button class="glass-sheen p-3.5 rounded-xl bg-surface-container-low/80 backdrop-blur-md border border-outline-variant/20 hover:border-primary/50 hover:bg-surface-container-high/90 hover:-translate-y-0.5 transition-all text-left flex flex-col justify-between h-28 shadow-md group" onclick="switchWorkspaceTab('arena')">
+<div class="flex items-center justify-between w-full">
+<span class="material-symbols-outlined text-[20px] text-primary group-hover:scale-110 transition-transform">sports_esports</span>
+<kbd class="px-1.5 py-0.2 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm border border-outline-variant/30">Ctrl+4</kbd>
+</div>
+<div>
+<p class="font-label-lg text-label-lg font-bold text-on-surface">Typing Arena</p>
+<span class="font-label-sm text-label-sm text-outline">Sangam Sprint</span>
+</div>
+</button>
+<!-- Node 5 -->
+<button class="glass-sheen p-3.5 rounded-xl bg-surface-container-low/80 backdrop-blur-md border border-outline-variant/20 hover:border-secondary/50 hover:bg-surface-container-high/90 hover:-translate-y-0.5 transition-all text-left flex flex-col justify-between h-28 shadow-md group" onclick="exportPdfSim()">
+<div class="flex items-center justify-between w-full">
+<span class="material-symbols-outlined text-[20px] text-secondary group-hover:scale-110 transition-transform">picture_as_pdf</span>
+<kbd class="px-1.5 py-0.2 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm border border-outline-variant/30">Ctrl+5</kbd>
+</div>
+<div>
+<p class="font-label-lg text-label-lg font-bold text-on-surface">PDF Studio</p>
+<span class="font-label-sm text-label-sm text-outline">Unicode Print</span>
+</div>
+</button>
+</div>
+</div>
+<!-- INTERACTIVE COMMAND PALETTE (CTRL+K MODAL) -->
+<div class="fixed inset-0 bg-surface-container-lowest/75 backdrop-blur-md z-50 hidden items-center justify-center p-4" id="cmd-palette-backdrop">
+<div class="w-full max-w-xl bg-surface-container/95 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden flex flex-col border border-primary/30" id="cmd-palette-modal">
+<!-- Search Input Area -->
+<div class="flex items-center px-4 py-3.5 bg-surface-container-high/90 gap-3 border-b border-outline-variant/20">
+<span class="material-symbols-outlined text-primary text-[22px]">search</span>
+<input class="w-full bg-transparent focus:outline-none text-on-surface font-body-md text-body-md placeholder-on-surface-variant/50" id="cmd-palette-input" oninput="filterPaletteActions(this.value)" placeholder="What would you like to do? (Type in English or தமிழ்)..." type="text"/>
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant" onclick="toggleCommandPalette()">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Action Items List -->
+<div class="max-h-80 overflow-y-auto p-2 flex flex-col gap-1" id="palette-actions-list">
+<button class="palette-item flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-surface-container-highest text-left transition-colors" onclick="runPaletteAction('studio')">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[18px]">keyboard</span>
+<span class="font-label-md text-label-md text-on-surface">Start Tamil99 Typing</span>
+</div>
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm">Ctrl+1</kbd>
+</button>
+<button class="palette-item flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-surface-container-highest text-left transition-colors" onclick="runPaletteAction('translit')">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[18px]">translate</span>
+<span class="font-label-md text-label-md text-on-surface">English→Tamil Transliteration</span>
+</div>
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm">Ctrl+2</kbd>
+</button>
+<button class="palette-item flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-surface-container-highest text-left transition-colors" onclick="runPaletteAction('voice')">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-[18px]">mic</span>
+<span class="font-label-md text-label-md text-on-surface">Voice to Text Dictation</span>
+</div>
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm">Ctrl+3</kbd>
+</button>
+<button class="palette-item flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-surface-container-highest text-left transition-colors" onclick="runPaletteAction('arena')">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[18px]">sports_esports</span>
+<span class="font-label-md text-label-md text-on-surface">Open Typing Arena</span>
+</div>
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm">Ctrl+4</kbd>
+</button>
+<button class="palette-item flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-surface-container-highest text-left transition-colors" onclick="runPaletteAction('pdf')">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-[18px]">picture_as_pdf</span>
+<span class="font-label-md text-label-md text-on-surface">Generate PDF Export</span>
+</div>
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm">Ctrl+P</kbd>
+</button>
+<button class="palette-item flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-surface-container-highest text-left transition-colors" onclick="runPaletteAction('copy')">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[18px]">content_copy</span>
+<span class="font-label-md text-label-md text-on-surface">Copy Tamil Document to Clipboard</span>
+</div>
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm">Ctrl+C</kbd>
+</button>
+<button class="palette-item flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-surface-container-highest text-left transition-colors" onclick="runPaletteAction('theme')">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[18px]">contrast</span>
+<span class="font-label-md text-label-md text-on-surface">Toggle Warm Ivory / Graphite Mode</span>
+</div>
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm">Ctrl+T</kbd>
+</button>
+</div>
+<!-- Footer Info -->
+<div class="px-4 py-2 bg-surface-container-lowest/90 border-t border-outline-variant/20 text-on-surface-variant font-label-sm text-label-sm flex items-center justify-between">
+<span>Navigation: ↑ ↓ Enter to choose</span>
+<span>ESC to dismiss</span>
+</div>
+</div>
+</div>
+</div>
+<!-- CLIENT RUNTIME INTERACTIVITY SCRIPT -->
+<script>
+  let activeTab = 'studio';
+  let isListening = false;
+  let isLightMode = false;
+  let keyboardVisible = true;
+
+  // Key mapping logic for Tamil99 Ligature Combinations
+  const tamilVowelSigns = {
+    'அ': '',
+    'ஆ': 'ா',
+    'இ': 'ி',
+    'ஈ': 'ீ',
+    'உ': 'ு',
+    'ஊ': 'ூ',
+    'எ': 'ெ',
+    'ஏ': 'ே',
+    'ஐ': 'ை',
+    'ஒ': 'ொ',
+    'ஓ': 'ோ',
+    'ஔ': 'ௌ'
+  };
+
+  const consonants = ['க', 'ங', 'ச', 'ஞ', 'ட', 'ண', 'த', 'ந', 'ப', 'ம', 'ய', 'ர', 'ல', 'வ', 'ழ', 'ள', 'ற', 'ன', 'ஜ', 'ஷ', 'ஸ', 'ஹ'];
+
+  function pressKey(char) {
+    const canvas = document.getElementById('tamil-canvas');
+    if (!canvas) return;
+
+    const start = canvas.selectionStart;
+    const end = canvas.selectionEnd;
+    const val = canvas.value;
+
+    // Check if the previous character was a pure consonant (or with pulli) and current is vowel
+    if (tamilVowelSigns[char] !== undefined && start > 0) {
+      const prevChar = val[start - 1];
+      if (prevChar === '்' && start > 1) {
+        // e.g., 'க்' + 'ஆ' => 'கா'
+        const rootConsonant = val[start - 2];
+        const combined = rootConsonant + tamilVowelSigns[char];
+        canvas.value = val.substring(0, start - 2) + combined + val.substring(end);
+        canvas.selectionStart = canvas.selectionEnd = start - 2 + combined.length;
+        updateSyllableDisplay(rootConsonant + '்', char, combined);
+        updateCharCount();
+        return;
+      }
+    }
+
+    // Default append
+    canvas.value = val.substring(0, start) + char + val.substring(end);
+    canvas.selectionStart = canvas.selectionEnd = start + char.length;
+    updateCharCount();
+  }
+
+  function pressBackspace() {
+    const canvas = document.getElementById('tamil-canvas');
+    if (!canvas) return;
+    const start = canvas.selectionStart;
+    const end = canvas.selectionEnd;
+    const val = canvas.value;
+
+    if (start === end) {
+      if (start > 0) {
+        canvas.value = val.substring(0, start - 1) + val.substring(end);
+        canvas.selectionStart = canvas.selectionEnd = start - 1;
+      }
+    } else {
+      canvas.value = val.substring(0, start) + val.substring(end);
+      canvas.selectionStart = canvas.selectionEnd = start;
+    }
+    updateCharCount();
+  }
+
+  function pressEnter() {
+    pressKey('\n');
+  }
+
+  function updateCharCount() {
+    const canvas = document.getElementById('tamil-canvas');
+    const counter = document.getElementById('stat-chars');
+    if (canvas && counter) {
+      counter.innerText = canvas.value.length.toLocaleString();
+    }
+  }
+
+  function updateSyllableDisplay(c1, c2, result) {
+    const disp = document.getElementById('syllable-display');
+    if (disp) {
+      disp.innerHTML = `<span>${c1}</span><span class="text-on-surface-variant text-body-sm">+</span><span>${c2}</span><span class="text-on-surface-variant text-body-sm">=</span><span class="text-primary font-bold drop-shadow-[0_0_6px_rgba(232,193,118,0.5)]">${result}</span>`;
+    }
+  }
+
+  function toggleKeyboard() {
+    const wrapper = document.getElementById('virtual-keyboard-wrapper');
+    if (!wrapper) return;
+    keyboardVisible = !keyboardVisible;
+    if (keyboardVisible) {
+      wrapper.classList.remove('hidden');
+    } else {
+      wrapper.classList.add('hidden');
+    }
+  }
+
+  function switchWorkspaceTab(tabId) {
+    const tabs = ['studio', 'translit', 'voice', 'arena', 'academy', 'forms', 'sdk', 'doc-studio', 'pdf-studio', 'documents', 'settings', 'help', 'overview'];
+    
+    let activeEl = document.getElementById('tab-' + tabId);
+    if (!activeEl) {
+      activeEl = document.createElement('div');
+      activeEl.id = 'tab-' + tabId;
+      activeEl.className = 'flex flex-col w-full space-y-6 hidden';
+      activeEl.innerHTML = '<div class="p-8 text-center bg-surface-container-low/50 rounded-xl border border-outline-variant/20 mt-8"><span class="material-symbols-outlined text-[48px] text-primary/60 mb-4">construction</span><h2 class="text-2xl font-headline-sm text-primary mb-2 capitalize">' + tabId.replace(/-/g, ' ') + '</h2><p class="text-on-surface-variant font-body-lg">This section is currently being built and will be available soon.</p></div>';
+      document.querySelector('main').appendChild(activeEl);
+    }
+
+    tabs.forEach(t => {
+      const el = document.getElementById('tab-' + t);
+      const btn = document.getElementById('navtab-' + t);
+      if (el) el.classList.add('hidden');
+      if (btn) {
+        btn.classList.remove('bg-primary-container', 'text-on-primary-container', 'font-bold');
+        btn.classList.add('bg-surface-container/80', 'text-on-surface');
+      }
+    });
+
+    if (activeEl) activeEl.classList.remove('hidden');
+    const activeBtn = document.getElementById('navtab-' + tabId);
+    if (activeBtn) {
+      activeBtn.classList.add('bg-primary-container', 'text-on-primary-container', 'font-bold');
+      activeBtn.classList.remove('bg-surface-container/80', 'text-on-surface');
+    }
+    activeTab = tabId;
+  }
+
+  function setLayout(layoutName) {
+    const ids = ['tamil99', 'phonetic', 'inscript'];
+    ids.forEach(id => {
+      const btn = document.getElementById('layout-' + id);
+      if (btn) {
+        btn.classList.remove('bg-primary', 'text-on-primary', 'font-bold');
+        btn.classList.add('hover:text-on-surface');
+      }
+    });
+    const cur = document.getElementById('layout-' + layoutName);
+    if (cur) {
+      cur.classList.add('bg-primary', 'text-on-primary', 'font-bold');
+      cur.classList.remove('hover:text-on-surface');
+    }
+  }
+
+  function changeCanvasFont(fontFamily) {
+    const canvas = document.getElementById('tamil-canvas');
+    if (canvas) canvas.style.fontFamily = fontFamily;
+  }
+
+  function setCanvasFontSize(size) {
+    const canvas = document.getElementById('tamil-canvas');
+    if (canvas) canvas.style.fontSize = size;
+  }
+
+  function formatCanvasText(action) {
+    const canvas = document.getElementById('tamil-canvas');
+    if (!canvas) return;
+    if (action === 'bold') {
+      canvas.style.fontWeight = canvas.style.fontWeight === 'bold' ? 'normal' : 'bold';
+    } else if (action === 'italic') {
+      canvas.style.fontStyle = canvas.style.fontStyle === 'italic' ? 'normal' : 'italic';
+    }
+  }
+
+  function copyCanvasContent() {
+    const canvas = document.getElementById('tamil-canvas');
+    if (!canvas) return;
+    navigator.clipboard.writeText(canvas.value).then(() => {
+      const label = document.getElementById('copy-label');
+      if (label) {
+        label.innerText = 'Copied!';
+        setTimeout(() => { label.innerText = 'Copy Tamil'; }, 1500);
+      }
+    });
+  }
+
+  function clearCanvasContent() {
+    const canvas = document.getElementById('tamil-canvas');
+    if (canvas && confirm('Clear editor text?')) {
+      canvas.value = '';
+      updateCharCount();
+    }
+  }
+
+  function exportPdfSim() {
+    alert('PDF Studio: Document prepared. Generating standard TN Unicode 15.1 PDF...');
+  }
+
+  function toggleVoiceDictation() {
+    isListening = !isListening;
+    const btn = document.getElementById('voice-toggle-btn');
+    const ring1 = document.getElementById('voice-ring-1');
+    const ring2 = document.getElementById('voice-ring-2');
+    const status = document.getElementById('voice-btn-status');
+
+    if (isListening) {
+      if (status) status.innerText = 'LISTENING...';
+      if (ring1) ring1.classList.remove('hidden');
+      if (ring2) ring2.classList.remove('hidden');
+      if (btn) btn.classList.add('scale-105');
+    } else {
+      if (status) status.innerText = 'PAUSED';
+      if (ring1) ring1.classList.add('hidden');
+      if (ring2) ring2.classList.add('hidden');
+      if (btn) btn.classList.remove('scale-105');
+    }
+  }
+
+  function runLiveTransliteration(text) {
+    const out = document.getElementById('translit-output');
+    if (!out) return;
+    const dict = {
+      'vanakkam': 'வணக்கம்',
+      'nanbargale': 'நண்பர்களே',
+      'eppadi': 'எப்படி',
+      'irukkeergal': 'இருக்கிறீர்கள்',
+      'tamil': 'தமிழ்',
+      'nandri': 'நன்றி',
+      'vanakam': 'வணக்கம்'
+    };
+
+    let words = text.split(' ');
+    let translated = words.map(w => dict[w.toLowerCase()] || w).join(' ');
+    out.innerText = translated;
+  }
+
+  function applySuggestion(word) {
+    const out = document.getElementById('translit-output');
+    if (out) out.innerText += ' ' + word;
+  }
+
+  function toggleWorkspaceTheme() {
+    isLightMode = !isLightMode;
+    const root = document.documentElement;
+    const btnLabel = document.getElementById('theme-btn-label');
+
+    if (isLightMode) {
+      root.classList.remove('dark');
+      if (btnLabel) btnLabel.innerText = 'Warm Ivory';
+    } else {
+      root.classList.add('dark');
+      if (btnLabel) btnLabel.innerText = 'Graphite';
+    }
+  }
+
+  function toggleCommandPalette() {
+    const modal = document.getElementById('cmd-palette-backdrop');
+    if (!modal) return;
+    if (modal.classList.contains('hidden')) {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      const input = document.getElementById('cmd-palette-input');
+      if (input) input.focus();
+    } else {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+  }
+
+  function filterPaletteActions(val) {
+    const items = document.querySelectorAll('.palette-item');
+    items.forEach(item => {
+      const txt = item.innerText.toLowerCase();
+      if (txt.includes(val.toLowerCase())) {
+        item.classList.remove('hidden');
+      } else {
+        item.classList.add('hidden');
+      }
+    });
+  }
+
+  function runPaletteAction(action) {
+    toggleCommandPalette();
+    if (action === 'studio') switchWorkspaceTab('studio');
+    else if (action === 'translit') switchWorkspaceTab('translit');
+    else if (action === 'voice') switchWorkspaceTab('voice');
+    else if (action === 'arena') switchWorkspaceTab('arena');
+    else if (action === 'pdf') exportPdfSim();
+    else if (action === 'copy') copyCanvasContent();
+    else if (action === 'theme') toggleWorkspaceTheme();
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      toggleCommandPalette();
+    } else if (e.key === 'F8') {
+      e.preventDefault();
+      toggleKeyboard();
+    } else if (e.key === 'Escape') {
+      const modal = document.getElementById('cmd-palette-backdrop');
+      if (modal && !modal.classList.contains('hidden')) {
+        toggleCommandPalette();
+      }
+    } else if ((e.ctrlKey || e.metaKey) && e.key === '1') {
+      e.preventDefault();
+      switchWorkspaceTab('studio');
+    } else if ((e.ctrlKey || e.metaKey) && e.key === '2') {
+      e.preventDefault();
+      switchWorkspaceTab('translit');
+    } else if ((e.ctrlKey || e.metaKey) && e.key === '3') {
+      e.preventDefault();
+      switchWorkspaceTab('voice');
+    } else if ((e.ctrlKey || e.metaKey) && e.key === '4') {
+      e.preventDefault();
+      switchWorkspaceTab('arena');
+    } else if ((e.ctrlKey || e.metaKey) && e.key === '5') {
+      e.preventDefault();
+      exportPdfSim();
+    }
+  });
+
+  // Sidebar navigation integration
+  document.querySelectorAll('aside nav a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const path = link.getAttribute('data-path');
+      const pathMap = {
+        'overview': 'overview',
+        'tamil99-studio': 'studio',
+        'english-tamil': 'translit',
+        'voice-to-text': 'voice',
+        'document-studio': 'doc-studio',
+        'tamil-academy': 'academy',
+        'typing-arena': 'arena',
+        'form-assistant': 'forms',
+        'pdf-studio': 'pdf-studio',
+        'documents': 'documents',
+        'developer-sdk': 'sdk',
+        'settings': 'settings',
+        'help': 'help'
+      };
+      const tabId = pathMap[path];
+      
+      // Update sidebar visual state
+      document.querySelectorAll('aside nav a').forEach(a => {
+        a.classList.remove('bg-primary-container', 'text-on-primary-container', 'font-bold', 'shadow-[0_2px_8px_rgba(201,164,92,0.3)]', 'border', 'border-primary/40');
+        a.classList.add('text-on-surface-variant');
+        if (a === link) {
+            a.classList.add('bg-primary-container', 'text-on-primary-container', 'font-bold', 'shadow-[0_2px_8px_rgba(201,164,92,0.3)]', 'border', 'border-primary/40');
+            a.classList.remove('text-on-surface-variant');
+        }
+      });
+
+      if (tabId) {
+        switchWorkspaceTab(tabId);
+      } else {
+        alert('This section is not fully implemented yet.');
+      }
+    });
+  });
+
+  updateCharCount();
+</script></main></div><footer class="fixed bottom-0 left-0 right-0 h-8 bg-surface-container-lowest/85 backdrop-blur-md z-50 flex items-center justify-between px-3 text-on-surface-variant text-body-sm font-body-sm shadow-[0_-1px_6px_rgba(0,0,0,0.4)] border-t border-outline-variant/15"><div class="flex items-center gap-3"><div class="flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container border border-primary/25 text-primary font-code-keycap text-code-keycap"><span class="text-primary font-bold">த</span><span>Tamil99</span></div><span class="h-3 w-[1px] bg-outline-variant/30"></span><div class="flex items-center gap-1.5 text-on-surface-variant font-label-sm text-label-sm"><span class="material-symbols-outlined text-[14px] text-primary">cloud_done</span><span>Cloud Sync: Active</span></div></div><div class="flex items-center gap-4"><span class="font-label-sm text-label-sm text-on-surface-variant">Unicode 15.1 · Tamil Block 0B80–0BFF</span><button aria-label="Toggle color mode" onclick="toggleWorkspaceTheme()" class="flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-on-surface hover:text-primary transition-colors font-label-sm text-label-sm border border-outline-variant/20"><span class="material-symbols-outlined text-[14px]">light_mode</span><span>Warm Ivory</span></button></div></footer></body></html>
